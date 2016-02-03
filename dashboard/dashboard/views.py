@@ -1,6 +1,6 @@
 from dashboard import app
 from flask import render_template
-
+from flask import request
 
 @app.route('/')
 def index():
