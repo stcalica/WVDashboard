@@ -3,11 +3,14 @@ Senior Design Project Energy Feedback for West Village in Davis, CA
 
 
 Don't forget to use the virtualenv to handle dependencies! 
-source ./env/bin/activate
+
+	source ./env/bin/activate
 
 and
 
-deactivate when finished!
+	deactivate 
+
+when finished!
 
 Installing requirements:
   pip install -r requirements.txt 
