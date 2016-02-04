@@ -3,11 +3,22 @@
 	<head> 
 		<title> Eco-feedback Dashboard</title> 
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-		<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"> </script>
-
-  
-	</head> 
-	{% block body %}
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"> </script>	
+	</head>
+	<body>  
+		<div id="container">
+			<nav class="navbar navbar-default"> 
+				<div class="contianer-fluid">
+					<div class="navbar-header">
+					</div> 
+					<a class="navbar-brand" href="#"> cEnergi </a>
+				</div>  	
+			</nav> 
+	{% block content %}
 
 	{% endblock %}
+		</div>
+	</body> 
+	<script type="text\javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
 </html> 
