@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-curl -O http://webservice.hobolink.com:80/public/devices/1216485/data_files/latest/txt
+curl http://webservice.hobolink.com/public/devices/10459715/data_files/latest/txt > API.csv 
