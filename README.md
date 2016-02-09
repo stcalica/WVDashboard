@@ -14,6 +14,7 @@ when finished!
 
 Installing requirements:
 
+
 	pip install -r requirements.txt 
   	--dont use sudo in this case! Or it will install to your computer's native enviroment and not the virtual one!
 
