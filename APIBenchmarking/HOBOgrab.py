@@ -1,7 +1,7 @@
 #!/bin/py
 import os, sys 
 import requests
-import csv
+import csv, psycopg2 
 """
 Benchmarking for the HOBOlink REST API 
 
