@@ -31,4 +31,17 @@ def HOBOgrab():
 
 	return 
 
+@app.task
+def DataUpload():
+	try:
+	 	latest  = csv.reader(f_latest) 
+		previous = csv.reader(f_recent) 
+	
+	finally:
+		#diff latest and previous 
+		#write the extra lines out and query into the database 			
+
+	
+	return
+
 	  
