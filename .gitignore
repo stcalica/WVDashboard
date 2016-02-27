@@ -1,3 +1,4 @@
 ./env/*
 ./backend/wv/*
 *.csv
+*.pyc
