@@ -23,20 +23,21 @@ def main():
 		finally:
 			f_latest.close()
 
+		filename1 = str(serial) +"_"+str(time.time())+".csv" 
+		filename2 = str(serial)+"_"+str(time.time()*60*60*60)+".csv"
+		recent_f  = open(filename1, "r")
+		last_f = open(filename2, "r")	 
 		try:
-			filename1 = serial +"_"+str(time.time())+".csv" 
-			filename2 = serial+"_"+str((time.time()*60*60*60))+".csv"
-			recent_f  = open(filename1, "r")
-			last_f = open(filename2, "r")	 
 			recent = csv.reader(recent_f) 
 			last = csv.reader(last_f) 
 			new = filecmp.cmp("./"+filename1, "./"+filename2) 
+		finally:
 			recent_f.close()
 			last_f.close() 
 			print new
 		#diff against old file
-		#insert new lines into database 
-	return	
+		#insert new lines into database
+	return 
 
 if __name__ == "__main__":
 	main() 
