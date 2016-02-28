@@ -8,7 +8,7 @@ def main():
 	current = time.strftime("%H") 
 	for serial in serials: 
 		#loop for each serial number 
-		req = requests.get("http://webservice.hobolink.com/rest/public/devices/10459715/data_files/latest/txt") 
+		req = requests.get("http://webservice.hobolink.com/rest/public/devices/"+str(serial)+"/data_files/latest/txt") 
 		#header in csv is seperated by a row of hyphens, so need to find row of hyphens and split it up
 		data = req.content.split("------------")
 		#now need to strip out extra quotations and returns and newlines 
