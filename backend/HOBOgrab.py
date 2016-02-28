@@ -32,12 +32,14 @@ def main():
 			recent = csv.reader(recent_f) 
 			last = csv.reader(last_f) 
 			#new = filecmp.cmp("./"+filename1, "./"+filename2) 
-			new = os.system("diff "+ filename1 + " "  + filename2) 
+			os.system("diff "+ filename1 + " "  + filename2 + " > newdata.txt")
+			datafile = open("newdata.txt", "r")
+		  	for line in datafile: 
+				print line.strip().strip("<").strip().split(",") 	 
 			
 		finally:
 			recent_f.close()
 			last_f.close() 
-			print new
 	return 
 
 if __name__ == "__main__":
