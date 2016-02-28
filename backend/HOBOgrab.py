@@ -1,10 +1,11 @@
 from celery import Celery
 import time, filecmp, requests
-import csv 
+import csv, os
 
 serials = [ 10459715 ] #hobologgers serial numbers 
 
 def main():
+	current = time.strftime("%H") 
 	for serial in serials: 
 		#loop for each serial number 
 		req = requests.get("http://webservice.hobolink.com/rest/public/devices/10459715/data_files/latest/txt") 
@@ -13,7 +14,7 @@ def main():
 		#now need to strip out extra quotations and returns and newlines 
 		data = data[1].strip('"').strip().split('\r\n')
 		#name each csv by serial number
-		f_latest = open( str(serial) + "_" + str(time.time()) + ".csv", 'wt')
+		f_latest = open( str(serial) + "_" + str(current) + ".csv", 'wt')
 		try:
 			w = csv.writer(f_latest)
 			data.pop()
@@ -23,20 +24,20 @@ def main():
 		finally:
 			f_latest.close()
 
-		filename1 = str(serial) +"_"+str(time.time())+".csv" 
-		filename2 = str(serial)+"_"+str(time.time()*60*60*60)+".csv"
+		filename1 = str(serial) +"_"+str(current)+".csv" 
+		filename2 = str(serial)+"_"+str(int(current) - 1)+".csv"
 		recent_f  = open(filename1, "r")
 		last_f = open(filename2, "r")	 
 		try:
 			recent = csv.reader(recent_f) 
 			last = csv.reader(last_f) 
-			new = filecmp.cmp("./"+filename1, "./"+filename2) 
+			#new = filecmp.cmp("./"+filename1, "./"+filename2) 
+			new = os.system("diff "+ filename1 + " "  + filename2) 
+			
 		finally:
 			recent_f.close()
 			last_f.close() 
 			print new
-		#diff against old file
-		#insert new lines into database
 	return 
 
 if __name__ == "__main__":
