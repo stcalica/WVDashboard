@@ -53,9 +53,7 @@
 		        .attr("y", function (d) { return y(d.name); } )
 		        .attr("width", function (d) { return Math.abs(x(d.value) - x(0)); })
 		        .attr("height", y.rangeBand())
-			    .on('mouseover', tip.show)
-			    .on('mouseout', tip.hide)
-		    ;
+			;
 
 		    svg.selectAll(".bar2")
 		        .data(data)
@@ -65,9 +63,9 @@
 		        .attr("y", function (d) { return y(d.name); })
 		        .attr("width", function (d) { return Math.abs(x(-d.value2) - x(0)); })
 		        .attr("height", y.rangeBand())
-			    .on('mouseover', tip.show)
-			    .on('mouseout', tip.hide)
-		    ;
+			;
+
+
 
 		    svg.append("g")
 		        .attr("class", "y axis")
@@ -75,7 +73,32 @@
 		        .attr("x1", x(0))
 		        .attr("x2", x(0))
 		        .attr("y2", height)
+		        .text("Zero Net Energy")
 		        ;
+
+			svg.append("text")
+				.attr("class", "y label")
+				.style("text-anchor", "middle")
+				.attr("x", 240)
+				.attr("y", height + 10)
+				.attr("dy", ".em")
+				.text("Zero Net");
+
+		    svg.selectAll(".bartext")
+				.data(data)
+				.enter()
+				.append("text")
+				.attr("x", function(d){ 
+						if(d.value == 0) {return x(-d.value2) + 20; } 
+						else  { return x(d.value) - 5; } 
+						})
+				.attr("y", function(d){ return y(d.name) + y.rangeBand()/2 + 5})
+				.attr("class", "bartext")
+				.attr("text-anchor", "end")
+				.attr("fill", "white")
+				.text(function(d){
+				     return Math.max(d.value, d.value2);
+				});
 
 		    function type(d) {
 		        d.value = +d.value;
@@ -84,7 +107,7 @@
 
 		</script>
 
-		
+
 	</div> 
 </div> 
 

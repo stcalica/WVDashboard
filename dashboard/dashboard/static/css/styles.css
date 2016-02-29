@@ -103,7 +103,7 @@ nav ul li a:active{
 
 .nav-toggle-btn:hover{
 	background-color: transparent;
-	color: white;
+	color: #FFCC33
 }
 
 
@@ -164,6 +164,39 @@ body.active-nav .shade{
   left: 0;
 }
 
+.ass{
+	width:100%;
+
+}
+.buttonwrap{
+	display:block;
+	width: 6.5%;
+	margin:0 auto;
+	text-align: center;
+}
+
+.button{
+
+	display: block;
+	height: 22px;
+	width: 75px;
+	background: #FFCC33;
+	border: 2px solid #FFCC33;
+
+	text-align: center;
+	font: 12pt 'LatoWeb';
+	color: white;
+}
+
+.button:hover{
+	background: white;
+	color:#FFCC33;
+}
+
+a.button:hover	{
+	text-decoration: none;
+}
+
 .bar{
     fill: #BF150A;     
 }
@@ -173,9 +206,10 @@ body.active-nav .shade{
 
 }
 
-.bar2:hover{
-	fill: #000;
+.bartext{
+	color: #FFF;
 }
+
 .axis text {
 
     font: 10px 'LatoWeb';
