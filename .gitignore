@@ -2,3 +2,4 @@
 ./backend/wv/*
 *.csv
 *.pyc
+./backend/newdata.txt
