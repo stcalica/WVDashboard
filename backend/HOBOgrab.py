@@ -2,9 +2,10 @@ from celery import Celery
 import time, filecmp, requests
 import csv, os
 
-serials = [ 10459715 ] #hobologgers serial numbers 
+serials = [ 10459715 ] #hobologgers serial numbers
 
 def main():
+	eat_first = 1	# a stupid bool that lets us eat the first line of each file we diff
 	current = time.strftime("%H") 
 	for serial in serials: 
 		#loop for each serial number 
@@ -34,12 +35,15 @@ def main():
 			#new = filecmp.cmp("./"+filename1, "./"+filename2) 
 			os.system("diff "+ filename1 + " "  + filename2 + " > newdata.txt")
 			datafile = open("newdata.txt", "r")
-		  	for line in datafile: 
-				print line.strip().strip("<").strip().split(",") 	 
+		  	for line in datafile:
+		  		if eat_first == 1:
+		  			eat_first = 0
+		  		else:
+					print line.strip().strip("<").strip().split(",") 	 
 			
 		finally:
 			recent_f.close()
-			last_f.close() 
+			last_f.close()
 	return 
 
 if __name__ == "__main__":
