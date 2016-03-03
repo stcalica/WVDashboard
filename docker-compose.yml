@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+	db:
+		image: postgres
+	rabbitmq:
+		image: rabbitmq 
+	web:
+		build: .
+		command: python ./dashboard/manage.py runserver
+	volumes:
+		- .:/code
+	ports:
+		- "8000:8000"
+	depends_on:
+		- db
+		- rabbitmq

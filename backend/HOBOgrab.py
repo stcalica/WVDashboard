@@ -1,6 +1,6 @@
-from celery import Celery
-import time, filecmp, requests
-import csv, os
+import csv, time 
+import requests, psycopg2
+import os
 
 serials = [ 10459715 ] #hobologgers serial numbers 
 
@@ -35,12 +35,30 @@ def main():
 			os.system("diff "+ filename1 + " "  + filename2 + " > newdata.txt")
 			datafile = open("newdata.txt", "r")
 		  	for line in datafile: 
-				print line.strip().strip("<").strip().split(",") 	 
-			
+				ndata = line.strip().strip("<").strip().split(",") 	 
+				
 		finally:
 			recent_f.close()
-			last_f.close() 
-	return 
+			last_f.close()
+ 	try:
+		newest = open("newdata.txt", "r") 
+		conn = psycopg2.connect("dbname='westvillage' user='kyle' host='localhost:5432' password='barry1'")
+		cur = conn.cursor() 	
+	except:
+		print "\n\tUnable to Connect\n"
+	for line in newest:
+		print line  
+		try:
+			#fetchall to get number
+			row_num = len(cur.fetchall())
+			query = "INSERT INTO BUILDINGS(" +str(row_num)+", "+str(line[0])+", "+str(line[1])+", "+str(line[2])+" , "+str(line[3])+", "+str(line[4])+", "+str(line[5])+" , "+str(line[6])+" , "+str(line[7])+")"
+			print query
+			#cur.execute(query) #queries go in here
+		except Exception as e:
+			print e
+			print "\n\tCouldn't insert query\n"
+			
+	return 	
 
 if __name__ == "__main__":
 	main() 
