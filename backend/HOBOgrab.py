@@ -1,6 +1,6 @@
-from celery import Celery
-import time, filecmp, requests
-import csv, os
+import csv, time 
+import requests, psycopg2
+import os
 
 serials = [ 10459715 ] #hobologgers serial numbers
 
@@ -34,6 +34,7 @@ def main():
 			last = csv.reader(last_f) 
 			#new = filecmp.cmp("./"+filename1, "./"+filename2) 
 			os.system("diff "+ filename1 + " "  + filename2 + " > newdata.txt")
+<<<<<<< HEAD
 			datafile = open("newdata.txt", "r")
 		  	for line in datafile:
 		  		if eat_first == 1:
@@ -45,6 +46,43 @@ def main():
 			recent_f.close()
 			last_f.close()
 	return 
+=======
+
+		finally:
+			recent_f.close()
+			last_f.close()
+		 
+
+
+ 	try: 
+		datafile = open("newdata.txt", "r")
+		#for line in datafile: 
+		#		ndata = line.strip().strip("<").strip(">").strip().split(",") 	 
+		#		print ndata	
+
+#		conn = psycopg2.connect("dbname='westvillage' user='kyle' host='localhost:5432' password='barry1'")
+#		cur = conn.cursor() 	
+	except:
+		print "\n\tUnable to Connect\n"
+	for line in datafile:
+		ndata = line.strip().strip("<").strip(">").strip().split(",") 	
+		print ndata
+		if len(ndata) < 7:
+			continue 
+		#need to split up the date and format that along with the time  
+		query = "INSERT INTO BUILDINGS(" + "0" +", "+str(ndata[0])+", "+str(ndata[1])+", "+str(ndata[2])+" , "+str(ndata[3])+", "+str(ndata[4])+", "+str(ndata[5])+" , "+str(ndata[6])+" , "+str(ndata[7])+")"
+		print query
+	"""	try:
+			#fetchall to get number
+			row_num = len(cur.fetchall())
+			#cur.execute(query) #queries go in here
+		except Exception as e:
+			print e
+			print "\n\tCouldn't insert query\n"
+	"""
+			
+	return	
+>>>>>>> 94a11e0364d6f0f80ade675de60a6ed02e7ca87f
 
 if __name__ == "__main__":
 	main() 
