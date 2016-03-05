@@ -33,32 +33,41 @@ def main():
 			last = csv.reader(last_f) 
 			#new = filecmp.cmp("./"+filename1, "./"+filename2) 
 			os.system("diff "+ filename1 + " "  + filename2 + " > newdata.txt")
-			datafile = open("newdata.txt", "r")
-		  	for line in datafile: 
-				ndata = line.strip().strip("<").strip().split(",") 	 
-				
+
 		finally:
 			recent_f.close()
 			last_f.close()
- 	try:
-		newest = open("newdata.txt", "r") 
-		conn = psycopg2.connect("dbname='westvillage' user='kyle' host='localhost:5432' password='barry1'")
-		cur = conn.cursor() 	
+		 
+
+
+ 	try: 
+		datafile = open("newdata.txt", "r")
+		#for line in datafile: 
+		#		ndata = line.strip().strip("<").strip(">").strip().split(",") 	 
+		#		print ndata	
+
+#		conn = psycopg2.connect("dbname='westvillage' user='kyle' host='localhost:5432' password='barry1'")
+#		cur = conn.cursor() 	
 	except:
 		print "\n\tUnable to Connect\n"
-	for line in newest:
-		print line  
-		try:
+	for line in datafile:
+		ndata = line.strip().strip("<").strip(">").strip().split(",") 	
+		print ndata
+		if len(ndata) < 7:
+			continue 
+		#need to split up the date and format that along with the time  
+		query = "INSERT INTO BUILDINGS(" + "0" +", "+str(ndata[0])+", "+str(ndata[1])+", "+str(ndata[2])+" , "+str(ndata[3])+", "+str(ndata[4])+", "+str(ndata[5])+" , "+str(ndata[6])+" , "+str(ndata[7])+")"
+		print query
+	"""	try:
 			#fetchall to get number
 			row_num = len(cur.fetchall())
-			query = "INSERT INTO BUILDINGS(" +str(row_num)+", "+str(line[0])+", "+str(line[1])+", "+str(line[2])+" , "+str(line[3])+", "+str(line[4])+", "+str(line[5])+" , "+str(line[6])+" , "+str(line[7])+")"
-			print query
 			#cur.execute(query) #queries go in here
 		except Exception as e:
 			print e
 			print "\n\tCouldn't insert query\n"
+	"""
 			
-	return 	
+	return	
 
 if __name__ == "__main__":
 	main() 

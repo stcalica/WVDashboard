@@ -1,7 +1,7 @@
-FROM python2.7
+FROM orchardup/python:2.7
 
 ADD . /PRODUCTION
 
-RUN pip install -u -r requirements.txt
+RUN pip install --user -r ./PRODUCTION/requirements.txt
 
-CMD python ./dashboard/manage.py runserver
+CMD python ./PRODUCTION/dashboard/manage.py runserver
