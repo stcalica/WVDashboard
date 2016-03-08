@@ -17,14 +17,14 @@ def index():
 
 
 #fetch by a date params: building
-def fetch_by_date():
-return 
+#def fetch_by_date():
+#return 
 
 #fetch by channel, params: watts, channel number
-def fetch_by_channel():
-return 
+#def fetch_by_channel():
+#return 
 
 
 #fetches by building params: fetch by channel 
-def fetch_by_building(): 
-return
+#def fetch_by_building(): 
+#return

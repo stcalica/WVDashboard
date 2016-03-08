@@ -1,7 +1,7 @@
 FROM orchardup/python:2.7
 
-ADD . /PRODUCTION
+ADD . /usr/app/src
 
-RUN pip install --user -r ./PRODUCTION/requirements.txt
 
-CMD python ./PRODUCTION/dashboard/manage.py runserver
+RUN pip install --user -r /usr/app/src/requirements.txt
+
