@@ -34,7 +34,6 @@ def main():
 			last = csv.reader(last_f) 
 			#new = filecmp.cmp("./"+filename1, "./"+filename2) 
 			os.system("diff "+ filename1 + " "  + filename2 + " > newdata.txt")
-<<<<<<< HEAD
 			datafile = open("newdata.txt", "r")
 		  	for line in datafile:
 		  		if eat_first == 1:
@@ -45,14 +44,6 @@ def main():
 		finally:
 			recent_f.close()
 			last_f.close()
-	return 
-=======
-
-		finally:
-			recent_f.close()
-			last_f.close()
-		 
-
 
  	try: 
 		datafile = open("newdata.txt", "r")
@@ -69,8 +60,29 @@ def main():
 		print ndata
 		if len(ndata) < 7:
 			continue 
-		#need to split up the date and format that along with the time  
-		query = "INSERT INTO BUILDINGS(" + "0" +", "+str(ndata[0])+", "+str(ndata[1])+", "+str(ndata[2])+" , "+str(ndata[3])+", "+str(ndata[4])+", "+str(ndata[5])+" , "+str(ndata[6])+" , "+str(ndata[7])+")"
+		#need to split up the date and format that along with the time
+		# Date then Time is in ndata[1]
+
+		# Format the Date to "YEAR-MONTH-DAY"
+		d_and_t = ndata[1].split(" ")
+		date_temp = d_and_t[0].split("/")
+		temp = date_temp[0]
+		date_temp[0] = "20"+str(date_temp[2])
+		date_temp[2] = date_temp[1]
+		date_temp[1] = temp
+		#If the month only has one digit, make it 2
+		if(len(date_temp[1]) == 1):
+			date_temp[1] = "0" + str(date_temp[1])
+		#If the day only has one digit, make it 2
+		if(len(date_temp[2]) == 1):
+			date_temp[2] = "0" + str(date_temp[2])
+		#Put the whole thing into one string variable
+		date_format = str(date_temp[0])+ "-" + str(date_temp[1])+ "-" + str(date_temp[2])
+
+		#The Time is already formatted optimally as "HOUR:MINUTE:SECOND"
+		time_format = str(d_and_t[1])
+
+		query = "INSERT INTO BUILDINGS(" + "0" +", "+str(ndata[0])+", "+date_format+", "+time_format+", "+str(ndata[2])+" , "+str(ndata[3])+", "+str(ndata[4])+", "+str(ndata[5])+" , "+str(ndata[6])+" , "+str(ndata[7])+")"
 		print query
 	"""	try:
 			#fetchall to get number
@@ -81,8 +93,7 @@ def main():
 			print "\n\tCouldn't insert query\n"
 	"""
 			
-	return	
->>>>>>> 94a11e0364d6f0f80ade675de60a6ed02e7ca87f
+	return
 
 if __name__ == "__main__":
 	main() 
