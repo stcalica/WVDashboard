@@ -1,7 +1,2 @@
-FROM orchardup/python:2.7
+FROM python:2-onbuild
 
-ADD . /PRODUCTION
-
-RUN pip install --user -r ./PRODUCTION/requirements.txt
-
-CMD python ./PRODUCTION/dashboard/manage.py runserver

@@ -1,17 +1,16 @@
 version: '2'
-
 services:
-	db:
-		image: postgres
-	rabbitmq:
-		image: rabbitmq 
-	web:
-		build: .
-		command: python ./dashboard/manage.py runserver
-	volumes:
-		- .:/code
-	ports:
-		- "8000:8000"
-	depends_on:
-		- db
-		- rabbitmq
+ web:
+  build: .
+  volumes:
+    - .:/usr/app/src
+  command: python /usr/app/src/dashboard/runserver.py
+  ports:
+    - "5000:5000"
+  depends_on:
+   - db
+   - rabbitmq
+ db:
+  image: postgres
+ rabbitmq:
+  image: rabbitmq 
