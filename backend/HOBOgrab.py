@@ -57,7 +57,7 @@ def main():
 		print "\n\tUnable to Connect\n"
 	for line in datafile:
 		ndata = line.strip().strip("<").strip(">").strip().split(",") 	
-		print ndata
+		#print ndata
 		if len(ndata) < 7:
 			continue 
 		#need to split up the date and format that along with the time

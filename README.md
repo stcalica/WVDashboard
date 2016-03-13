@@ -26,4 +26,10 @@ Runnning:
 	cd dashboard/
 	python runserver.py
 
-Currently there is no database, but that will be added soon! 
+Currently there is no database, but that will be added soon!
+
+Dockerized: 
+
+Docker uses internal DNS to set host names of links in docker-compose.yml 
+
+just use postgres to connect. Tuts coming soon! 
