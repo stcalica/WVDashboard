@@ -12,7 +12,8 @@ services:
    - rabbitmq
  postgres:
   image: postgres
+  build: ./database
   ports:
-   - "5432:5432"
+    - "5432:5432"
  rabbitmq:
   image: rabbitmq 

@@ -1,6 +1,4 @@
 FROM postgres:latest
-
-COPY . /fixtures
-WORKDIR /fixtures
-RUN chmod +x /fixture/setup.sh
-RUN /fixtures/setup.sh
+ENV POSTGRES_USER postgres
+ENV POSTGRES_PASSWORD postgres
+ENV POSTGRES_DB westvillage
