@@ -1,9 +1,5 @@
-
-
 CREATE DATABASE feed; 
-
-
-CREATE TABLE FEED( 
+CREATE TABLE wvlogger( 
 	DEPT char(10),
 	DATE date, 
 	TIME time, 

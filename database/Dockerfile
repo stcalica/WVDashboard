@@ -1,4 +1,3 @@
 FROM postgres:latest
-ENV POSTGRES_USER postgres
-ENV POSTGRES_PASSWORD postgres
-ENV POSTGRES_DB westvillage
+ADD create_db.sql /docker-entrypoint-initdb.d/
+
