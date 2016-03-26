@@ -4,7 +4,7 @@ services:
   build: .
   volumes:
     - .:/usr/app/src
-  command: python /usr/app/src/dashboard/runserver.py
+  command: node app
   ports:
     - "5000:5000"
   links:
