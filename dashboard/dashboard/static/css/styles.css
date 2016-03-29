@@ -22,204 +22,298 @@
     text-rendering: optimizeLegibility;
 }
 
-body{
-	padding-top:55px;
-	overflow-x: hidden;
-}
-
-nav{
-
-	position:	fixed;
-	z-index:	100;
-	top:	0; left:	0;
-	height:	100%; width:	250px;
-
-	background-color: #FFCC33;
-	transform: translate3d(-250px, 0, 0);
-
-	-webkit-transition: transform 0.4s ease;
-	-moz-transition: transform 0.4s ease;
-	-o-transition: transform 0.4s ease;
-}
-
-.active-nav nav{
-	transform: translate3d(0, 0, 0);
-}
-
-nav ul{
-	font-family: 'LatoWeb';
-	font-size: 30pt;
-	letter-spacing: 2px;
-
-	list-style:	none;
-	margin-top: 100px;
-	padding-left: 0px;
-}
-
-nav ul li a{
-	margin-left:25px;
-
-	text-decoration: none;
-	display: block;
-	text-align: left;
-	color:#FFF;
-	padding:50px 0;
-}
-
-nav ul li a:link{
-	color:	white;
-	text-decoration: none;
-}
-
-nav ul li a:visited{
-	color: white;
-
-	font-weight: bold;
-	text-decoration: none;
-}
-
-nav ul li a:hover{
-	font-weight: bold;
-	text-decoration: none;
-}
-
-nav ul li a:active{
-	font-weight: bold;
-	color: white;
-}
-
-.nav-toggle-btn{
-	padding-top: 10px;
-	text-align:center;
-
-	display:block;
+.jumbocontainer{
 	background-color: transparent;
-	color: #FFCC33;
-
-	position: absolute;
-	left:	250px;
-	width: 55px;	height: 55px;
-}
-
-.nav-toggle-btn:hover{
-	background-color: transparent;
-	color: #FFCC33
-}
-
-
-.nav-toggle-btn:visited{
-	background-color:	transparent;
-	color:#FFCC33;
-}
-
-.shade{
-	margin-top:-55px;
-	background-color: #585858;
-	position:absolute;
-
-	height:100%; width:100%; z-index:99;
-
-	-webkit-filter:opacity(0%);
-	-moz-filter:opacity(0%);
-	-o-filter:opacity(0%);
-	filter: opacity(0%);
-}
-
-body.active-nav .shade{
-	-webkit-filter: opacity(75%);
-	-moz-filter: opacity(75%);
-	-o-filter: opacity(75%);
-	filter: opacity(75%);
+	position: relative;
+	height: 100vh;
+	width: 100vw;
 }
 
 .jumbotron{
+	padding-top:50px;
+	padding-bottom:50px;
 	text-align: center;
-	height: 600px;
-}
+	height: 800px;
+	width: 1280px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
 
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
-
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
-
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
-
-.ass{
-	width:100%;
-
-}
-.buttonwrap{
-	display:block;
-	width: 6.5%;
-	margin:0 auto;
-	text-align: center;
-}
-
-.button{
-
-	display: block;
-	height: 22px;
-	width: 75px;
-	background: #FFCC33;
-	border: 2px solid #FFCC33;
-
-	text-align: center;
-	font: 12pt 'LatoWeb';
-	color: white;
-}
-
-.button:hover{
-	background: white;
-	color:#FFCC33;
-}
-
-a.button:hover	{
-	text-decoration: none;
-}
-
-.bar{
-    fill: #BF150A;     
-}
-
-.bar2 {
-	fill: #33CC99;
 
 }
 
-.bartext{
-	color: #FFF;
+#top-jumbo{
+	background-color: #1F1F1F;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 }
 
-.axis text {
+/*Power grid related*/
+#grid{
+	position: absolute;
+	top: 638px;
+	left:59px;
+}
 
-    font: 10px 'LatoWeb';
+#grid2{
+	position: absolute;
+	top: 638px;
+	left: 207px;
+}
+
+#grid_1605_1{ 
+	position: absolute;
+	top: 662px;
+	left: 38px;
+}
+
+#grid_1605_2{
+	position: absolute;
+	top:144px;
+	left:38px;
+}
+
+#grid_1605_3{
+	position: absolute;
+	top:144px;
+	left:38px;
+}
+
+/*Estimated x value*/
+#grid_1605_4{
+	position: absolute;
+	top:144px;
+	left:674px;	
+}
+
+#grid_1715_1{ 
+	position: absolute;
+	top: 662px;
+	left: 147px;
+}
+
+/*Estimated x, y value deduced from element 1*/
+#grid_1715_2{ 
+	position: absolute;
+	top: 400px;
+	left: 156px;
+}
+
+/*Deduced x value*/
+#grid_1590_1{ 
+	position: absolute;
+	top: 662px;
+	left: 295px;
+}
+
+#grid_1590_2{ 
+	position: absolute;
+	top: 442px;
+	left: 1226px;
+}
+
+#grid_1590_3{ 
+	position: absolute;
+	top: 442px;
+	left: 1172px;
+}
+
+#grid_215_1{ 
+	position: absolute;
+	top: 662px;
+	left: 186px;
+}
+
+#grid_215_2{ 
+	position: absolute;
+	top: 482px;
+	left: 186px;
+}
+
+#grid_215_3{ 
+	position: absolute;
+	top: 482px;
+	left: 186px;
+}
+
+/*Road & Pavement*/
+
+#dashed_hor{
+	position: absolute;
+	top: 433px;
+	left: 201px;
+}
+
+/* TOTALLY GUESSED X DIST */
+#dashed_vert{
+	position: absolute;
+	top: 461px;
+	left: 580px;
+}
+
+#pavement_1{
+	position: absolute;
+	top: 335px;
+	left: 132px;
+}
+
+#pavement_2{
+	position: absolute;
+	top: 461px;
+	left: 223px;
+}
+
+#pavement_quad{
+	position: absolute;
+	top: 461px;
+	left: 642px;
+}
+
+/* Buildings: Note that all y values aside from solar panels are estimated*/
+
+#layer2_building_215{
+	position: absolute;
+	top: 406px;
+	left: 239px;
+}
+
+#layer2_building_1590{
+	position: absolute;
+	top: 409px;
+	left: 953px;
 
 }
 
-.axis path, .axis line {
-    fill: none;
-    stroke: #FFCC33;
-    stroke-width: 4px;
-    shape-rendering: crispEdges;
+#layer2_building_1605{
+	position: absolute;
+	top: 283px;
+	left: 591px;
 }
 
+#layer2_building_1715{
+	position: absolute;
+	top: 283px;
+	left: 147px;
+}
+
+#layer3_building_215{
+	position: absolute;
+	top:357px;
+	left:239px;
+}
+
+#layer3_building_1590{
+	position: absolute;
+	top: 358px;
+	left: 953px;
+
+}
+
+#layer3_building_1605{
+	position: absolute;
+	top: 234px;
+	left: 591px;
+}
+
+#layer3_building_1715{
+	position: absolute;
+	top: 234px;
+	left: 147px;
+}
+
+#layer4_building_215{
+	position: absolute;
+	top:342px;
+	left:239px;
+}
+
+#layer4_building_1590{
+	position: absolute;
+	top: 342px;
+	left: 953px;
+
+}
+
+#layer4_building_1605{
+	position: absolute;
+	top: 218px;
+	left: 591px;
+}
+
+#layer4_building_1715{
+	
+	position: absolute;
+	top: 218px;
+	left: 147px;
+}
+
+/*Cloud & Sun, y values estimated from pdf*/
+#cloud{
+	position:absolute;
+	top: 83px;
+	left: 980px;
+}
+
+#cloud_dark{
+	position:absolute;
+	top: 83px;
+	left: 980px;
+
+}
+
+#sun{
+	position:absolute;
+	top: 48px;
+	left: 1060px;
+}
+
+/*Trees and fountain*/
+
+#tree1{
+	position: absolute;
+	top: 460px;
+	left: 914px;
+}
+
+#tree2{
+	position: absolute;
+	top: 476px;
+	left: 926px;
+}
+
+#tree3{
+	position: absolute;
+	top: 492px;
+	left: 940px;
+}
+
+#tree4{
+	position: absolute;
+	top: 508px;
+	left: 954px;
+}
+
+#tree5{
+	position: absolute;
+	top: 524px;
+	left: 968px;
+}
+
+#fountain1{
+	position: absolute;
+	top: 482px;
+	left: 858px;
+}
+
+#fountain2{
+	position: absolute;
+	top: 481px;
+	left: 863px;
+}
+
+#fountain3{
+	position: absolute;
+	top: 480px;
+	left: 869px;
+}

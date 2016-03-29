@@ -1,115 +1,148 @@
 {% extends "layout.html" %}
 {% block content %}
 
-
-<div class="jumbotron">
-	<div class="container">
-
-		<script type="text/javascript">
-		    data = [
-		    	{ name: "B1", value: 27, value2: 0}, 
-		    	{ name: "B2", value: 0, value2: 69}, 
-		    	{ name: "B3", value: 54, value2: 0}, 
-		    	{ name: "B4", value: 0, value2: 89}, 
-		    	{ name: "B5", value: 34, value2: 0}, 
-		    	{ name: "B6", value: 0, value2: 12} 
-		    ]
-
-		    var margin = { top: 30, right: 10, bottom: 10, left: 10},
-		    width = 500 - margin.left - margin.right,
-		    height = 500 - margin.top - margin.bottom;
-
-		    var x = d3.scale.linear()
-		        .range([0, width])
-
-		    var y = d3.scale.ordinal()
-		        .rangeRoundBands([0, height], .2);
-
-		    var tip = d3.tip()
-				.attr("class", "d3-tip")
-				.offset([-10, 0])
-				.html(function(d) {
-				return "<strong>Value:</strong> <span style='color:red'>"+ d.value + "</span>";
-			})
-
-		    var svg = d3.select(".jumbotron")
-		    	.append("svg")
-		        .attr("width", width + margin.left + margin.right)
-		        .attr("height", height + margin.top + margin.bottom)
-		        .append("g")
-		        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-		    ;
-
-		    svg.call(tip);
-		    
-		    x.domain([-100,100])
-		    y.domain(data.map(function (d) { return d.name; } ) );
-
-		    svg.selectAll(".bar")
-		        .data(data)
-		        .enter().append("rect")
-		        .attr("class", "bar")
-		        .attr("x", function (d) { return x(Math.min(0, d.value)); } )
-		        .attr("y", function (d) { return y(d.name); } )
-		        .attr("width", function (d) { return Math.abs(x(d.value) - x(0)); })
-		        .attr("height", y.rangeBand())
-			;
-
-		    svg.selectAll(".bar2")
-		        .data(data)
-		        .enter().append("rect")
-		        .attr("class", "bar2")
-		        .attr("x", function (d) { return x(Math.min(0, -d.value2)); })
-		        .attr("y", function (d) { return y(d.name); })
-		        .attr("width", function (d) { return Math.abs(x(-d.value2) - x(0)); })
-		        .attr("height", y.rangeBand())
-			;
+<div class="jumbocontainer">
+	<div class="jumbotron" id="top-jumbo">
 
 
+	<!-- Power towers -->
+		<object id="grid" type="image/svg+xml" data="../static/splash/grid.svg">
+		</object>
 
-		    svg.append("g")
-		        .attr("class", "y axis")
-		        .append("line")
-		        .attr("x1", x(0))
-		        .attr("x2", x(0))
-		        .attr("y2", height)
-		        .text("Zero Net Energy")
-		        ;
+		<object id="grid2" type="image/svg+xml" data="../static/splash/grid.svg">
+		</object>
 
-			svg.append("text")
-				.attr("class", "y label")
-				.style("text-anchor", "middle")
-				.attr("x", 240)
-				.attr("y", height + 10)
-				.attr("dy", ".em")
-				.text("Zero Net");
+	<!-- Power Grid 1605 Top Right -->
+		<object id="grid_1605_1" type="image/svg+xml" data="../static/splash/grid_1605_1.svg">
+		</object>
 
-		    svg.selectAll(".bartext")
-				.data(data)
-				.enter()
-				.append("text")
-				.attr("x", function(d){ 
-						if(d.value == 0) {return x(-d.value2) + 20; } 
-						else  { return x(d.value) - 5; } 
-						})
-				.attr("y", function(d){ return y(d.name) + y.rangeBand()/2 + 5})
-				.attr("class", "bartext")
-				.attr("text-anchor", "end")
-				.attr("fill", "white")
-				.text(function(d){
-				     return Math.max(d.value, d.value2);
-				});
+		<object id="grid_1605_2" type="image/svg+xml" data="../static/splash/grid_1605_2.svg">
+		</object>
 
-		    function type(d) {
-		        d.value = +d.value;
-		        return d;
-		    }
+		<object id="grid_1605_3" type="image/svg+xml" data="../static/splash/grid_1605_3.svg">
+		</object>
 
-		</script>
+		<object id="grid_1605_4" type="image/svg+xml" data="../static/splash/grid_1605_4.svg">
+		</object>
 
+	<!-- Power Grid 1715 Top Left-->
+		<object id="grid_1715_1" type="image/svg+xml" data="../static/splash/grid_1715_1.svg">
+		</object>
 
+		<object id="grid_1715_2" type="image/svg+xml" data="../static/splash/grid_1715_2.svg">
+		</object>
+
+	<!-- Power Grid 1590 Bottom Right-->
+		<object id="grid_1590_1" type="image/svg+xml" data="../static/splash/grid_1590_1.svg">
+		</object>
+
+		<object id="grid_1590_2" type="image/svg+xml" data="../static/splash/grid_1590_2.svg">
+		</object>
+
+		<object id="grid_1590_3" type="image/svg+xml" data="../static/splash/grid_1590_3.svg">
+		</object>
+
+	<!-- Power Grid 215 Bottom Left-->
+		<object id="grid_215_1" type="image/svg+xml" data="../static/splash/grid_215_1.svg">
+		</object>
+
+		<object id="grid_215_2" type="image/svg+xml" data="../static/splash/grid_215_2.svg">
+		</object>
+
+		<object id="grid_215_3" type="image/svg+xml" data="../static/splash/grid_215_3.svg">
+		</object>
+
+	<!-- Road & pavement -->
+		<object id="dashed_hor" type="image/svg+xml" data="../static/splash/dashed_hor.svg">
+		</object>
+
+		<object id="dashed_vert" type="image/svg+xml" data="../static/splash/dashed_vert.svg">
+		</object>
+
+		<object id="pavement_1" type="image/svg+xml" data="../static/splash/pavement_1.svg">
+		</object>
+
+		<object id="pavement_2" type="image/svg+xml" data="../static/splash/pavement_2.svg">
+		</object>
+
+		<object id="pavement_quad" type="image/svg+xml" data="../static/splash/pavement_quad.svg">
+		</object>
+
+	<!-- Buildings Layer 2 -->
+		<object id="layer2_building_215" type="image/svg+xml" data="../static/splash/layer2_building_215.svg">
+		</object>
+
+		<object id="layer2_building_1590" type="image/svg+xml" data="../static/splash/layer2_building_1590.svg">
+		</object>
+
+		<object id="layer2_building_1605" type="image/svg+xml" data="../static/splash/layer2_building_1605.svg">
+		</object>
+
+		<object id="layer2_building_1715" type="image/svg+xml" data="../static/splash/layer2_building_1715.svg">
+		</object>
+
+	<!-- Buildings Layer 3 -->
+		<object id="layer3_building_215" type="image/svg+xml" data="../static/splash/layer3_building_215.svg">
+		</object>
+
+		<object id="layer3_building_1590" type="image/svg+xml" data="../static/splash/layer3_building_1590.svg">
+		</object>
+
+		<object id="layer3_building_1605" type="image/svg+xml" data="../static/splash/layer3_building_1605.svg">
+		</object>
+
+		<object id="layer3_building_1715" type="image/svg+xml" data="../static/splash/layer3_building_1715.svg">
+		</object>
+
+	<!-- Buildings Layer 4 -->
+		<object id="layer4_building_215" type="image/svg+xml" data="../static/splash/layer4_building_215.svg">
+		</object>
+
+		<object id="layer4_building_1590" type="image/svg+xml" data="../static/splash/layer4_building_1590.svg">
+		</object>
+
+		<object id="layer4_building_1605" type="image/svg+xml" data="../static/splash/layer4_building_1605.svg">
+		</object>
+
+		<object id="layer4_building_1715" type="image/svg+xml" data="../static/splash/layer4_building_1715.svg">
+		</object>
+
+	<!-- Sun & Cloud -->
+		<object id="sun" type="image/svg+xml" data="../static/splash/sun.svg">
+		</object>
+
+		<object id="cloud" type="image/svg+xml" data="../static/splash/cloud.svg">
+		</object>
+
+		<object id="cloud_dark" type="image/svg+xml" data="../static/splash/cloud_dark.svg">
+		</object>
+
+	<!-- Trees and fountain -->
+		<object id="tree1" type="image/svg+xml" data="../static/splash/layer1(4)_tree.svg">
+		</object>
+
+		<object id="tree2" type="image/svg+xml" data="../static/splash/layer1(4)_tree.svg">
+		</object>
+
+		<object id="tree3" type="image/svg+xml" data="../static/splash/layer1(4)_tree.svg">
+		</object>
+
+		<object id="tree4" type="image/svg+xml" data="../static/splash/layer1(4)_tree.svg">
+		</object>
+
+		<object id="tree5" type="image/svg+xml" data="../static/splash/layer1(4)_tree.svg">
+		</object>
+
+		<object id="fountain1" type="image/svg+xml" data="../static/splash/layer1(1)_fountain.svg">
+		</object>
+
+		<object id="fountain2" type="image/svg+xml" data="../static/splash/layer1(2)_fountain.svg">
+		</object>
+
+		<object id="fountain3" type="image/svg+xml" data="../static/splash/layer1(3)_fountain.svg">
+		</object>
+		
 	</div> 
-</div> 
-
+</div>
 
 {% endblock %}
