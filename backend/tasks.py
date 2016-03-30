@@ -1,10 +1,11 @@
-from celery import Celery
-import time, filecmp, requests
-import csv, os
+import csv, time 
+import requests #, psycopg2
+import os
 
-serials = [ 10459715 ] #hobologgers serial numbers 
+serials = [ 10459715 ] #hobologgers serial numbers
 
 def main():
+	eat_first = 1	# a stupid bool that lets us eat the first line of each file we diff
 	current = time.strftime("%H") 
 	for serial in serials: 
 		#loop for each serial number 
@@ -34,13 +35,66 @@ def main():
 			#new = filecmp.cmp("./"+filename1, "./"+filename2) 
 			os.system("diff "+ filename1 + " "  + filename2 + " > newdata.txt")
 			datafile = open("newdata.txt", "r")
-		  	for line in datafile: 
-				print line.strip().strip("<").strip().split(",") 	 
+		  	for line in datafile:
+		  		if eat_first == 1:
+		  			eat_first = 0
+		  		else:
+					pass
+					#print line.strip().strip("<").strip().split(",") 	 
 			
 		finally:
 			recent_f.close()
-			last_f.close() 
-	return 
+			last_f.close()
+
+ 	try: 
+		datafile = open("newdata.txt", "r")
+		#for line in datafile: 
+		#		ndata = line.strip().strip("<").strip(">").strip().split(",") 	 
+		#		print ndata	
+
+#		conn = psycopg2.connect("dbname='westvillage' user='kyle' host='localhost:5432' password='barry1'")
+#		cur = conn.cursor() 	
+	except:
+		print "\n\tUnable to Connect\n"
+	for line in datafile:
+		ndata = line.strip().strip("<").strip(">").strip().split(",") 	
+		#print ndata
+		if len(ndata) < 7:
+			continue 
+		#need to split up the date and format that along with the time
+		# Date then Time is in ndata[1]
+
+		# Format the Date to "YEAR-MONTH-DAY"
+		d_and_t = ndata[1].split(" ")
+		date_temp = d_and_t[0].split("/")
+		temp = date_temp[0]
+		date_temp[0] = "20"+str(date_temp[2])
+		date_temp[2] = date_temp[1]
+		date_temp[1] = temp
+		#If the month only has one digit, make it 2
+		if(len(date_temp[1]) == 1):
+			date_temp[1] = "0" + str(date_temp[1])
+		#If the day only has one digit, make it 2
+		if(len(date_temp[2]) == 1):
+			date_temp[2] = "0" + str(date_temp[2])
+		#Put the whole thing into one string variable
+		date_format = str(date_temp[0])+ "-" + str(date_temp[1])+ "-" + str(date_temp[2])
+
+		#The Time is already formatted optimally as "HOUR:MINUTE:SECOND"
+		time_format = str(d_and_t[1])
+
+		query = "INSERT INTO BUILDINGS(" + "0" +", "+str(ndata[0])+", "+date_format+", "+time_format+", "+str(ndata[2])+" , "+str(ndata[3])+", "+str(ndata[4])+", "+str(ndata[5])+" , "+str(ndata[6])+" , "+str(ndata[7])+")"
+		print query
+	"""	try:
+			#fetchall to get number
+			row_num = len(cur.fetchall())
+			#cur.execute(query) #queries go in here
+		except Exception as e:
+			print e
+			print "\n\tCouldn't insert query\n"
+	"""
+			
+	return
 
 if __name__ == "__main__":
-	main()
+	main() 

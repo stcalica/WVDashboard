@@ -1,5 +1,5 @@
 import csv, time 
-import requests, psycopg2
+import requests #, psycopg2
 import os
 
 serials = [ 10459715 ] #hobologgers serial numbers
@@ -39,7 +39,8 @@ def main():
 		  		if eat_first == 1:
 		  			eat_first = 0
 		  		else:
-					print line.strip().strip("<").strip().split(",") 	 
+					pass
+					#print line.strip().strip("<").strip().split(",") 	 
 			
 		finally:
 			recent_f.close()
@@ -57,7 +58,7 @@ def main():
 		print "\n\tUnable to Connect\n"
 	for line in datafile:
 		ndata = line.strip().strip("<").strip(">").strip().split(",") 	
-		print ndata
+		#print ndata
 		if len(ndata) < 7:
 			continue 
 		#need to split up the date and format that along with the time
