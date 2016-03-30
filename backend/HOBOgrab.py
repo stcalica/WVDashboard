@@ -88,12 +88,13 @@ def main():
 		#The Time is already formatted optimally as "HOUR:MINUTE:SECOND"
 		time_format = str(d_and_t[1])
 
-		query = "INSERT INTO BUILDINGS(0"+ ", "+str(ndata[0])+", "+date_format+", "+time_format+", "+str(ndata[2])+" , "+str(ndata[3])+", "+str(ndata[4])+", "+str(ndata[5])+" , "+str(ndata[6])+" , "+str(ndata[7])+")"
 		print query
 		try:
 			#fetchall to get number
-		#	row_num = len(cur.fetchall())
+			row_num = len(cur.fetchall())
+			query = "INSERT INTO BUILDINGS("+ row_num+ ", "+str(ndata[0])+", "+date_format+", "+time_format+", "+str(ndata[2])+" , "+str(ndata[3])+", "+str(ndata[4])+", "+str(ndata[5])+" , "+str(ndata[6])+" , "+str(ndata[7])+")"
 			cur.execute(query) #queries go in here
+			conn.commit()
 		except Exception as e:
 			print e
 			print "\n\tCouldn't insert query\n"

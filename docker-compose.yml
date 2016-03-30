@@ -1,7 +1,8 @@
 version: '2'
 services:
  web:
-  build: node:4-onbuild
+  container_name: web
+  image: node:4-onbuild
   volumes:
     - ./app/:/usr/app/src
   command: npm start 
@@ -10,22 +11,25 @@ services:
   links:
    - postgres
  tasks:
-  build: python:2-onbuild
+  image: python:2-onbuild
   volumes:
     - ./backend/:/usr/tasks/src
   links:
-    -postgres
-    -rabbitmq
+    - postgres
+    - rabbitmq
   command: python HOBOgrab.py 
-#change to celery -A tasks worker 
  postgres:
+  container_name: postgres
+  environment:
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_DB=feed
   image: postgres
-   
-# use the env
-#map or copy into init.d file using volumes, chargepoint
   volumes:
     - ./database/entrypoint:/docker-entrypoint-initdb.d/
   ports:
     - "5432:5432"
  rabbitmq:
+  container_name: rabbitmq
   image: rabbitmq 
+  ports:
+    - "5627:5627"
