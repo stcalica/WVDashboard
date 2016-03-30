@@ -1,29 +1,32 @@
 # WVDashboard
 Senior Design Project Energy Feedback for West Village in Davis, CA
 
+--UPDATED MARCH 21st--
 
-Don't forget to use the virtualenv to handle dependencies! 
+We made this project way more exciting!
 
-	source ./env/bin/activate
+First make sure you have the Docker Engine installed and that the Dockerfile and docker-compose.yml 
+is in the root directory of the project. 
 
-and
+Now just do 
+	
+	docker-compose up 
 
-	deactivate 
+and the docker images will be built and the containers will be strung together. 
 
-when finished!
+Visit your localhost and check that the website is running, 
+also make sure the rabbitmq server and postgresql server is running using 
+	
+	docker-compose up
 
-Installing requirements:
+and check to see that the status is up. 
+
+Now the volumes are attached to the containers, which means that any changes to the files will create
+changes to the docker container running.  
 
 
-	pip install -r requirements.txt 
-  	--dont use sudo in this case! Or it will install to your computer's native enviroment and not the virtual one!
+Dockerized: 
 
+Docker uses internal DNS to set host names of links in docker-compose.yml 
 
-
-
-Runnning: 
-
-	cd dashboard/
-	python runserver.py
-
-Currently there is no database, but that will be added soon! 
+just use postgres to connect. Tuts coming soon! 

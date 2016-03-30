@@ -7,10 +7,13 @@ services:
   command: python /usr/app/src/dashboard/runserver.py
   ports:
     - "5000:5000"
-  depends_on:
-   - db
+  links:
+   - postgres
    - rabbitmq
- db:
+ postgres:
   image: postgres
+  build: ./database
+  ports:
+    - "5432:5432"
  rabbitmq:
   image: rabbitmq 

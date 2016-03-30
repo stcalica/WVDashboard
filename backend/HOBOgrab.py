@@ -52,8 +52,8 @@ def main():
 		#		ndata = line.strip().strip("<").strip(">").strip().split(",") 	 
 		#		print ndata	
 
-#		conn = psycopg2.connect("dbname='westvillage' user='kyle' host='localhost:5432' password='barry1'")
-#		cur = conn.cursor() 	
+		conn = psycopg2.connect("dbname='postgres' user='postgres' host='localhost'")
+		cur = conn.cursor() 	
 	except:
 		print "\n\tUnable to Connect\n"
 	for line in datafile:
@@ -63,11 +63,16 @@ def main():
 			continue 
 		#need to split up the date and format that along with the time
 		# Date then Time is in ndata[1]
-
-		# Format the Date to "YEAR-MONTH-DAY"
+		
 		d_and_t = ndata[1].split(" ")
 		date_temp = d_and_t[0].split("/")
+		if(len(date_temp) < 2): 
+			continue
+		print(date_temp)
+		
 		temp = date_temp[0]
+		print(date_temp[0])
+		print(date_temp[2])
 		date_temp[0] = "20"+str(date_temp[2])
 		date_temp[2] = date_temp[1]
 		date_temp[1] = temp
@@ -83,16 +88,16 @@ def main():
 		#The Time is already formatted optimally as "HOUR:MINUTE:SECOND"
 		time_format = str(d_and_t[1])
 
-		query = "INSERT INTO BUILDINGS(" + "0" +", "+str(ndata[0])+", "+date_format+", "+time_format+", "+str(ndata[2])+" , "+str(ndata[3])+", "+str(ndata[4])+", "+str(ndata[5])+" , "+str(ndata[6])+" , "+str(ndata[7])+")"
+		query = "INSERT INTO BUILDINGS(0"+ ", "+str(ndata[0])+", "+date_format+", "+time_format+", "+str(ndata[2])+" , "+str(ndata[3])+", "+str(ndata[4])+", "+str(ndata[5])+" , "+str(ndata[6])+" , "+str(ndata[7])+")"
 		print query
-	"""	try:
+		try:
 			#fetchall to get number
-			row_num = len(cur.fetchall())
-			#cur.execute(query) #queries go in here
+		#	row_num = len(cur.fetchall())
+			cur.execute(query) #queries go in here
 		except Exception as e:
 			print e
 			print "\n\tCouldn't insert query\n"
-	"""
+	
 			
 	return
 
