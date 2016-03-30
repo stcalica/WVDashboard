@@ -3,3 +3,5 @@
 *.csv
 *.pyc
 ./backend/newdata.txt
+./app/node_modules
+

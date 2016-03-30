@@ -1,4 +1,5 @@
-CREATE DATABASE feed; 
+CREATE DATABASE feed;
+\connect feed; 
 CREATE TABLE wvlogger( 
 	DEPT char(10),
 	DATE date, 
