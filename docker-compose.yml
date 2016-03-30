@@ -31,3 +31,5 @@ services:
  rabbitmq:
   container_name: rabbitmq
   image: rabbitmq 
+  ports:
+    - "5627:5627"
