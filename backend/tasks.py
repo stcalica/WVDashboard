@@ -6,7 +6,7 @@ from celery import Celery #allow celery to run this as an app
 
 serials = [ 10459715 ] #hobologgers serial numbers
 
-app = Celery('tasks', broker='amqp://guest@localhost//')
+app = Celery('tasks', backend='amqp', broker='localhost')
 
 @app.task
 def main():
