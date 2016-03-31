@@ -3,6 +3,20 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+    auto_install: {
+      local: {},
+      subdir: {
+        options: {
+          cwd: 'subdir',
+          stdout: true,
+          stderr: true,
+          failOnError: true,
+          npm: '--production'
+        }
+      }
+    }
+
     // uglify: {
     //   options: {
     //     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -14,10 +28,20 @@ module.exports = function(grunt) {
     // }
   });
 
-  // // Load the plugin that provides the "uglify" task.
+  // Load the plugin that provides the "uglify" task.
   // grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  // // Default task(s).
+  // Handles 'npm install' and 'bower install'
+  grunt.loadNpmTasks('grunt-auto-install');
+
+  // Default task(s).
   // grunt.registerTask('default', ['uglify']);
+
+  // Test task
+  grunt.registerTask('default', function() {
+    grunt.log.write('Logging some stuff...').ok();
+  });
+
+  
 
 };
