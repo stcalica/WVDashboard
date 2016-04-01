@@ -6,15 +6,15 @@ module.exports = function(grunt) {
 
     auto_install: {
       local: {},
-      subdir: {
-        options: {
-          cwd: 'subdir',
-          stdout: true,
-          stderr: true,
-          failOnError: true,
-          npm: '--production'
-        }
-      }
+      // subdir: {
+      //   options: {
+      //     cwd: 'subdir',
+      //     stdout: true,
+      //     stderr: true,
+      //     failOnError: true,
+      //     npm: '--production'
+      //   }
+      // }
     }
 
     // uglify: {
@@ -31,17 +31,24 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   // grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  // Handles 'npm install' and 'bower install'
+  // Handles 'npm install' and 'bower install' **** DOESN'T WORK ****
   grunt.loadNpmTasks('grunt-auto-install');
 
   // Default task(s).
   // grunt.registerTask('default', ['uglify']);
 
   // Test task
-  grunt.registerTask('default', function() {
-    grunt.log.write('Logging some stuff...').ok();
+  // grunt.registerTask('default', function() {
+  //   grunt.log.write('Logging some stuff...').ok();
+  // });
+
+  // Does 'npm install'
+  grunt.registerTask('install', 'install the backend and frontend dependencies', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('npm install', {cwd: '.'}, function(err, stdout, stderr) {
+      console.log(stdout);
+      cb();
+    });
   });
-
-  
-
 };
