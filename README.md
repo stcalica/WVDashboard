@@ -1,5 +1,10 @@
 # WVDashboard
 Senior Design Project Energy Feedback for West Village in Davis, CA
+--UPDATED MARCH 31st -- 
+
+
+Using Docker means to test something we can do it if it is local. But to run docker and have these moving components means to change the names to the containersspecified in the Dockerfile 
+
 
 --UPDATED MARCH 21st--
 

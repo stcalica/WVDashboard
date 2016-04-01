@@ -1,5 +1,5 @@
 \connect feed;
-CREATE TABLE wvlogger( 
+CREATE TABLE BUILDINGS( 
 	DEPT char(10),
 	DATE date, 
 	TIME time, 
