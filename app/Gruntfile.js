@@ -4,8 +4,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    auto_install: {
-      local: {},
+    // auto_install: {
+    //   local: {},
       // subdir: {
       //   options: {
       //     cwd: 'subdir',
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       //     npm: '--production'
       //   }
       // }
-    }
+    // }
 
     // uglify: {
     //   options: {
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Handles 'npm install' and 'bower install' **** DOESN'T WORK ****
-  grunt.loadNpmTasks('grunt-auto-install');
+  // grunt.loadNpmTasks('grunt-auto-install');
 
   // Default task(s).
   // grunt.registerTask('default', ['uglify']);
@@ -42,12 +42,23 @@ module.exports = function(grunt) {
   //   grunt.log.write('Logging some stuff...').ok();
   // });
 
-  // Does 'npm install'
-  grunt.registerTask('install', 'install the backend and frontend dependencies', function() {
+  // Does 'npm install' (which does bower install)
+  grunt.registerTask('default', 'install the backend and frontend dependencies', function() {
     var exec = require('child_process').exec;
     var cb = this.async();
     exec('npm install', {cwd: '.'}, function(err, stdout, stderr) {
       console.log(stdout);
+      cb();
+    });
+  });
+
+  grunt.registerTask('start', 'install the backend and frontend dependencies', function() {
+    var exec = require('child_process').exec;
+    var cb = this.async();
+    exec('npm start', {cwd: '.'}, function(err, stdout, stderr) {
+      console.log(stdout);
+      console.log(stderr);
+      // console.log(err);
       cb();
     });
   });
