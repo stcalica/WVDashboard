@@ -12,13 +12,13 @@ services:
    - postgres
  tasks:
   container_name: tasks
-  image: python:2-onbuild
+  image: celery:3.1
   volumes:
     - ./backend/:/usr/tasks/src
   links:
     - postgres
     - rabbitmq
-  command: /usr/tasks/src/start.sh
+  command: bash -c "celery -A tasks worker & && python task-client.py" 
  postgres:
   container_name: postgres
   environment:
