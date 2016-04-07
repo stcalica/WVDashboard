@@ -4,7 +4,7 @@ services:
 language: node_js
 version: "0.10"
 before_install: 
-  - "cd ./app && npm install -g grunt && npm install -g grunt-run && grunt"
+  - "cd ./app && npm install -g grunt && npm install grunt-run && grunt"
 install: "docker-compose up -d"
 
 before_script: "chmod +x ./tests"
