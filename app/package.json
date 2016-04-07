@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "postinstall" : "bower install",  
      "start": "npm start"
+=======
+    "postinstall": "bower install",
+    "start": "npm start"
+>>>>>>> a4ed6ddb0ff7206893ff284fc17118a6150f7098
   },
   "repository": {
     "type": "git",
@@ -23,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/angular/angular.js/issues"
   },
-  "homepage": "http://angularjs.org"
+  "homepage": "http://angularjs.org",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
