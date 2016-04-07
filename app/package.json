@@ -4,14 +4,7 @@
   "description": "HTML enhanced for web apps",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "postinstall" : "bower install",  
-     "start": "npm start"
-=======
-    "postinstall": "bower install",
-    "start": "npm start"
->>>>>>> a4ed6ddb0ff7206893ff284fc17118a6150f7098
+    "start": "node bin/www"
   },
   "repository": {
     "type": "git",
@@ -30,6 +23,13 @@
   },
   "homepage": "http://angularjs.org",
   "dependencies": {
-    "express": "^4.13.4"
+    "debug": "~2.2.0",
+    "express": "^4.13.4",
+    "grunt-run": "~0.5.2",
+    "serve-favicon": "~2.3.0",
+    "morgan": "~1.7.0",
+    "cookie-parser": "~1.4.1",
+    "body-parser": "~1.15.0",
+    "http": "0.0.0"
   }
 }
