@@ -25,7 +25,8 @@ def main():
 			w = csv.writer(f_latest)
 			data.pop()
 			w.writerow(["#", "PacificDateTime", "channel1", "channel2", "channel3", "channel4", "channel5", "channel6", "channel7", "channel8", "channel9", "channel10", "channel11", "channel12", "channel13", "channel14", "channel15"])
-			for line in data[1:]: 
+			for line in data[1:]:
+				#print line 
 				w.writerow(line.split(",")) 
 		finally:
 			f_latest.close()
@@ -45,7 +46,7 @@ def main():
 		  			eat_first = 0
 		  		else:
 					pass
-					#print line.strip().strip("<").strip().split(",") 	 
+#					print line.strip().strip("<").strip().split(",") 	 
 			
 		finally:
 			recent_f.close()
@@ -63,7 +64,6 @@ def main():
 		print "\n\tUnable to Connect\n"
 	for line in datafile:
 		ndata = line.strip().strip("<").strip(">").strip().split(",") 	
-		#print ndata
 		if len(ndata) < 7:
 			continue 
 		#need to split up the date and format that along with the time
@@ -71,6 +71,8 @@ def main():
 
 		# Format the Date to "YEAR-MONTH-DAY"
 		d_and_t = ndata[1].split(" ")
+		if(len(d_and_t) < 2):
+			continue
 		date_temp = d_and_t[0].split("/")
 		temp = date_temp[0]
 		date_temp[0] = "20"+str(date_temp[2])
