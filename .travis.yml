@@ -1,6 +1,6 @@
 sudo: required
 services: 
-	- docker 
+ - docker 
 language: node_js
 python: "0.10"
 before_install: 
