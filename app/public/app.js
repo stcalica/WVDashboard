@@ -1,12 +1,17 @@
 (function(){
 
 	'use strict';
-	
 	var dependencies = []; // all our modules  
 
-	angular.module('dashboard', dependencies).config(Config); 
+	var mainModule = angular.module('dashboard', dependencies); //.config(Config); 
 
-	config.$inject = []; //any providers
+	
+	angular.element(document).ready(function(){
+		
+		console.log('hello!');		
+	
+		angular.bootstrap(document, ['mainModule']); 
 
+	});
 
 });
