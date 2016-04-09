@@ -1,17 +1,27 @@
 (function(){
 
 	'use strict';
-	var dependencies = []; // all our modules  
 
-	var mainModule = angular.module('dashboard', dependencies); //.config(Config); 
+	var dependencies = [
+		'ngRoute',
+		'core' 
 
+	]; // all our modules  
+
+	angular.module('dashboard', dependencies).config(Config); //.config(Config); 
+
+	Config.$inject = ['$locationProvider'];
 	
-	angular.element(document).ready(function(){
-		
-		console.log('hello!');		
+	function Config($locationProvider){
+		$locationProvider.hashPrefix('!'); 
 	
-		angular.bootstrap(document, ['mainModule']); 
+	}	
+
+ 	angular.element(document).ready(function(){
+	
+		angular.bootstrap(document, ['dashboard']); 
+
 
 	});
 
-});
+})();

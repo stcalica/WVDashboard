@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/javascripts/bootstrap/dist/css/bootstrap.css' /> 
@@ -12,14 +12,12 @@
   </body>
 
 	<!-- JS  Libraries -->   
-  <script type='text/javascript' src='/javascripts/jquery/dist/jquery.min.js'></script>   
-  <script type='text/javascript' src='/javascripts/bootstrap/dist/js/bootstrap.min.js'></script> 
-  <script type='text/javascript' src='/javascripts/angular/angular.min.js'></script>
+  <script type='text/javascript' src='/lib/jquery/dist/jquery.min.js'></script>   
+  <script type='text/javascript' src='/lib/bootstrap/dist/js/bootstrap.min.js'></script> 
+  <script type='text/javascript' src='/lib/angular/angular.min.js'></script>
+  <script type='text/javascript' src='/lib/angular-route/angular-route.min.js'></script> 
 
-	<!-- Angular Modules  --> 
+  <script type='text/javascript' src='/modules/core/core.client.module.js'></script>  
+  <script type='text/javascript' src='/modules/core/config/core.client.routes.js'></script>  
   <script type='text/javascript' src='/app.js'></script>  
-  <script type='text/javascript' src='/modules/cores/core.client.module.js'></script>  
-
-	<!-- Angular Controllers--> 
-
 </html>
