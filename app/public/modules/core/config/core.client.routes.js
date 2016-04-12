@@ -12,7 +12,7 @@
 			$routeProvider
 			
 			.when('/core', {
-				template: '<h3> Testing Routing </h3>',
+				templateUrl: '/modules/core/views/core.client.view.html',
 				controller: 'Index', 
 				controllerAs: 'vm'
 			}) 
