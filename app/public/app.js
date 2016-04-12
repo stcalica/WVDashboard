@@ -13,8 +13,12 @@
 	Config.$inject = ['$locationProvider'];
 	
 	function Config($locationProvider){
-		$locationProvider.hashPrefix('!'); 
+		$locationProvider.hashPrefix('!');
 	
+	}
+	
+	if(window.location.hash === '#_=_'){
+		window.location.hash = '#!'; 
 	}	
 
  	angular.element(document).ready(function(){

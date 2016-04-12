@@ -6,8 +6,9 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-	<div class="flud-container">
-    		{{{body}}}
+	<div class="flud-container ng-cloak">
+		{{{ body  }}} 
+		<div ng-view> </div>
 	</div>
   </body>
 
@@ -19,5 +20,6 @@
 
   <script type='text/javascript' src='/modules/core/core.client.module.js'></script>  
   <script type='text/javascript' src='/modules/core/config/core.client.routes.js'></script>  
+  <script type='text/javascript' src='/modules/core/controllers/core.controller.client.js'></script>  
   <script type='text/javascript' src='/app.js'></script>  
 </html>

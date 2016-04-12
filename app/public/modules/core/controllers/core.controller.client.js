@@ -3,18 +3,13 @@
 	'use strict'; 
 	
 	angular.module('core')
-		.controller('Core', CoreController);
+		.controller('Index', CoreController);
 	
 	CoreController.$inject = ['$rootScope', '$scope' ];
-
 
 	function CoreController($rootScope, $scope){
 		//add attributes to this 
 		var vm = this; 
-		
-		
-
-
 	} 
 
 
