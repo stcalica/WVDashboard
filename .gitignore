@@ -4,4 +4,6 @@
 *.pyc
 ./backend/newdata.txt
 ./app/node_modules/*
-
+./app/node_modules
+./app/public/lib
+./app/public/lib/*
