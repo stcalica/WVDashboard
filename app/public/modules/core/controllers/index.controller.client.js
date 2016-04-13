@@ -8,7 +8,6 @@
 	CoreController.$inject = ['$rootScope', '$scope' ];
 
 	function CoreController($rootScope, $scope){
-		//add attributes to this 
 		var vm = this; 
 	} 
 
@@ -16,4 +15,4 @@
 
 
 
-});
+})();

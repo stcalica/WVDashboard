@@ -11,8 +11,6 @@
 	initialize.$inject = [ '$rootScope', '$location']; 
 
 	function initialize($rootScope, $location){
-		console.log($location);
-				
 		//initialize module's variables here 
 		var vm = this; 
 	        	

@@ -11,10 +11,8 @@
 			
 			$routeProvider
 			
-			.when('/core', {
-				templateUrl: '/modules/core/views/core.client.view.html',
-				controller: 'Index', 
-				controllerAs: 'vm'
+			.when('/', {
+				templateUrl: '/modules/core/views/core.client.view.html'
 			}) 
 			.otherwise({
 				

@@ -6,3 +6,326 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+
+
+@font-face {
+    font-family: 'LatoWebLight';
+    src: url('../fonts/Lato-Light.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Lato-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/Lato-Light.woff2') format('woff2'), /* Modern Browsers */
+         url('../fonts/Lato-Light.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/Lato-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'LatoWeb';
+    src: url('../fonts/Lato-Regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
+         url('../fonts/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/Lato-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+.jumbocontainer{
+	background-color: transparent;
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+}
+
+.jumbotron{
+	padding-top:50px;
+	padding-bottom:50px;
+	text-align: center;
+	height: 800px;
+	width: 1280px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+
+}
+
+#top-jumbo{
+	background-color: #1F1F1F;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+/*Power grid related*/
+#grid{
+	position: absolute;
+	top: 638px;
+	left:59px;
+}
+
+#grid2{
+	position: absolute;
+	top: 638px;
+	left: 207px;
+}
+
+#grid_1605_1{ 
+	position: absolute;
+	top: 662px;
+	left: 38px;
+}
+
+#grid_1605_2{
+	position: absolute;
+	top:144px;
+	left:38px;
+}
+
+#grid_1605_3{
+	position: absolute;
+	top:144px;
+	left:38px;
+}
+
+/*Estimated x value*/
+#grid_1605_4{
+	position: absolute;
+	top:144px;
+	left:674px;	
+}
+
+#grid_1715_1{ 
+	position: absolute;
+	top: 662px;
+	left: 147px;
+}
+
+/*Estimated x, y value deduced from element 1*/
+#grid_1715_2{ 
+	position: absolute;
+	top: 400px;
+	left: 156px;
+}
+
+/*Deduced x value*/
+#grid_1590_1{ 
+	position: absolute;
+	top: 662px;
+	left: 295px;
+}
+
+#grid_1590_2{ 
+	position: absolute;
+	top: 442px;
+	left: 1226px;
+}
+
+#grid_1590_3{ 
+	position: absolute;
+	top: 442px;
+	left: 1172px;
+}
+
+#grid_215_1{ 
+	position: absolute;
+	top: 662px;
+	left: 186px;
+}
+
+#grid_215_2{ 
+	position: absolute;
+	top: 482px;
+	left: 186px;
+}
+
+#grid_215_3{ 
+	position: absolute;
+	top: 482px;
+	left: 186px;
+}
+
+/*Road & Pavement*/
+
+#dashed_hor{
+	position: absolute;
+	top: 433px;
+	left: 201px;
+}
+
+/* TOTALLY GUESSED X DIST */
+#dashed_vert{
+	position: absolute;
+	top: 461px;
+	left: 580px;
+}
+
+#pavement_1{
+	position: absolute;
+	top: 335px;
+	left: 132px;
+}
+
+#pavement_2{
+	position: absolute;
+	top: 461px;
+	left: 223px;
+}
+
+#pavement_quad{
+	position: absolute;
+	top: 461px;
+	left: 642px;
+}
+
+/* Buildings: Note that all y values aside from solar panels are estimated*/
+
+#layer2_building_215{
+	position: absolute;
+	top: 406px;
+	left: 239px;
+}
+
+#layer2_building_1590{
+	position: absolute;
+	top: 409px;
+	left: 953px;
+
+}
+
+#layer2_building_1605{
+	position: absolute;
+	top: 283px;
+	left: 591px;
+}
+
+#layer2_building_1715{
+	position: absolute;
+	top: 283px;
+	left: 147px;
+}
+
+#layer3_building_215{
+	position: absolute;
+	top:357px;
+	left:239px;
+}
+
+#layer3_building_1590{
+	position: absolute;
+	top: 358px;
+	left: 953px;
+
+}
+
+#layer3_building_1605{
+	position: absolute;
+	top: 234px;
+	left: 591px;
+}
+
+#layer3_building_1715{
+	position: absolute;
+	top: 234px;
+	left: 147px;
+}
+
+#layer4_building_215{
+	position: absolute;
+	top:342px;
+	left:239px;
+}
+
+#layer4_building_1590{
+	position: absolute;
+	top: 342px;
+	left: 953px;
+
+}
+
+#layer4_building_1605{
+	position: absolute;
+	top: 218px;
+	left: 591px;
+}
+
+#layer4_building_1715{
+	
+	position: absolute;
+	top: 218px;
+	left: 147px;
+}
+
+/*Cloud & Sun, y values estimated from pdf*/
+#cloud{
+	position:absolute;
+	top: 83px;
+	left: 980px;
+}
+
+#cloud_dark{
+	position:absolute;
+	top: 83px;
+	left: 980px;
+
+}
+
+#sun{
+	position:absolute;
+	top: 48px;
+	left: 1060px;
+}
+
+/*Trees and fountain*/
+
+#tree1{
+	position: absolute;
+	top: 460px;
+	left: 914px;
+}
+
+#tree2{
+	position: absolute;
+	top: 476px;
+	left: 926px;
+}
+
+#tree3{
+	position: absolute;
+	top: 492px;
+	left: 940px;
+}
+
+#tree4{
+	position: absolute;
+	top: 508px;
+	left: 954px;
+}
+
+#tree5{
+	position: absolute;
+	top: 524px;
+	left: 968px;
+}
+
+#fountain1{
+	position: absolute;
+	top: 482px;
+	left: 858px;
+}
+
+#fountain2{
+	position: absolute;
+	top: 481px;
+	left: 863px;
+}
+
+#fountain3{
+	position: absolute;
+	top: 480px;
+	left: 869px;
+}
