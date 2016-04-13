@@ -38,5 +38,8 @@ module.exports = function(grunt) {
       console.log(stdout);
       cb();
     });
+   exec('bower install', {cwd: '.'}, function(err, stdout, stderr){
+	console.log(stdout); 
+	});
   });
 };
