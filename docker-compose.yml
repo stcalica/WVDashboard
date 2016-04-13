@@ -2,12 +2,11 @@ version: '2'
 services:
  web:
   container_name: web
-  image: node:4-onbuild
+  build: ./app
   volumes:
-    - ./app/:/usr/app/src
-  command: npm start 
+    - ./app:/usr/app/src
   ports:
-    - "5000:5000"
+    - "3000:3000"
   links:
    - postgres
  tasks:
@@ -28,7 +27,7 @@ services:
   volumes:
     - ./database/entrypoint:/docker-entrypoint-initdb.d/
   ports:
-    - "5432:5432"
+    - "5437:5437"
  rabbitmq:
   container_name: rabbitmq
   image: rabbitmq 
