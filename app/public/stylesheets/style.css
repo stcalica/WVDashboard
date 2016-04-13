@@ -1,5 +1,7 @@
 body {
-  padding: 50px;
+  /*padding: 50px;*/
+  padding-left: 90px;
+  padding-right: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -31,32 +33,13 @@ a {
     text-rendering: optimizeLegibility;
 }
 
-.jumbocontainer{
-	background-color: transparent;
-	position: relative;
-	height: 100vh;
-	width: 100vw;
-}
-
-.jumbotron{
-	padding-top:50px;
-	padding-bottom:50px;
-	text-align: center;
-	height: 800px;
-	width: 1280px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
+.splash{
+	position:relative;
+	height:100%;
+	width:100%;
 
 
-}
-
-#top-jumbo{
-	background-color: #1F1F1F;
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
-}
+} 
 
 /*Power grid related*/
 #grid{
@@ -231,8 +214,9 @@ a {
 	left: 147px;
 }
 
-#layer4_building_215{
+#layer4_building_215_v2{
 	position: absolute;
+	height: 125px;
 	top:342px;
 	left:239px;
 }
@@ -260,20 +244,20 @@ a {
 /*Cloud & Sun, y values estimated from pdf*/
 #cloud{
 	position:absolute;
-	top: 83px;
+	top: 93px;
 	left: 980px;
 }
 
 #cloud_dark{
 	position:absolute;
-	top: 83px;
+	top: 93px;
 	left: 980px;
 
 }
 
 #sun{
 	position:absolute;
-	top: 48px;
+	top: 58px;
 	left: 1060px;
 }
 
@@ -321,11 +305,11 @@ a {
 	left: 863px;
 }
 
-#fountain3{
+/*#fountain3{
 	position: absolute;
 	top: 480px;
 	left: 869px;
-}
+}*/
 .navbar-brand {
 	padding-top: 0;
 	padding-bottom: 0;
