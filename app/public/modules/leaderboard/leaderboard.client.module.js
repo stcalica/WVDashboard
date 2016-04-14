@@ -12,6 +12,5 @@
 
 	function initialize($rootScope, $location){
 		//initialize module's variables here 
-		var vm = this;        	
 	}
 })(); 

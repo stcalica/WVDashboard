@@ -4,7 +4,7 @@ services:
   container_name: web
   build: ./app
   volumes:
-    - ./app:/usr/app/src
+    - /app:/usr/app/src
   ports:
     - "3000:3000"
   links:
