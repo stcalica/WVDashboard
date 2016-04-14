@@ -28,7 +28,8 @@ module.exports = function(grunt) {
    
 
   grunt.loadNpmTasks('grunt-run'); 
-
+  grunt.loadNpmTasks('grunt-contrib-uglify'); //minifies files 
+  grunt.loadNpmTasks('grunt-reload'); //reloads browser if files changes 
 //create dev task
   grunt.registerTask('default', ['install', 'run']) 
   grunt.registerTask('install', 'install the backend and frontend dependencies', function() {

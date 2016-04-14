@@ -31,5 +31,8 @@
     "cookie-parser": "~1.4.1",
     "body-parser": "~1.15.0",
     "http": "0.0.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-uglify": "~1.0.1"
   }
 }

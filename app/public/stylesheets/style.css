@@ -9,6 +9,32 @@ a {
   color: #00B7FF;
 }
 
+.centers{
+	margin:auto;
+	width:100%;	
+	padding:50px;
+} 
+
+.buildings{
+	width:350px;
+	height:300px;  
+	float: left;
+	margin-left:20px;
+	
+} 
+
+.buildings img{
+
+	height:250px;
+	text-align:center;
+	margin:auto;  
+
+}
+
+.buildings h3{
+	text-align:center;
+	color: white; 
+}
 @font-face {
     font-family: 'LatoWebLight';
     src: url('../fonts/Lato-Light.eot'); /* IE9 Compat Modes */
