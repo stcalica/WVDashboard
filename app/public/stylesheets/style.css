@@ -12,7 +12,8 @@ nav{
 }
 
 a {
-  color: #00B7FF;
+  /*color: #00B7FF;*/
+  color:#FFFFFF;
 }
 
 .centers{
@@ -65,13 +66,47 @@ a {
     text-rendering: optimizeLegibility;
 }
 
+/* Formatting for the links in the navbar */
+@media (min-width: 768px){
+	.navbar-nav {
+		float:right;
+	}
+}
+.navbar-inverse{
+    background-color: #777;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus{
+	color:#FFFFFF;
+	background-color: #777;
+}
+
+/* The text color of navbar links */
+.navbar-inverse .navbar-nav{
+	color:#FFFFFF;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+	color:#FFFFFF;
+}
+
+/*a:active{
+	font-weight: bold;
+}*/
+
 .splash{
 	position:relative;
 	height:100%;
 	width:100%;
+<<<<<<< HEAD
+} 
+=======
 
 
 }
+>>>>>>> e2e38f9d8fa716b44f536a5460a20a2c79ed56f7
 
 /*Power grid related*/
 #grid{
