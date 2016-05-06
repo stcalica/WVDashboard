@@ -2,14 +2,18 @@ import csv, time
 import requests #, psycopg2
 import os
 
-from celery import Celery #allow celery to run this as an app
+# from celery import Celery #allow celery to run this as an app
+from apscheduler.schedulers.blocking import BlockingScheduler
 
 serials = [ 10459715 ] #hobologgers serial numbers
 
-app = Celery('tasks', backend='amqp', broker='localhost')
+# app = Celery('tasks', backend='amqp', broker='localhost')
+sched = BlockingScheduler()
 
-@app.task
-def main():
+# @app.task
+@sched.scheduled_job('Data_pull', minute=0, second=5)	# should run 5 seconds after every hour
+def scheduled_job():
+# def main():
 	eat_first = 1	# a stupid bool that lets us eat the first line of each file we diff
 	current = time.strftime("%H") 
 	for serial in serials: 
