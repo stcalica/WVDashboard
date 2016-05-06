@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eco Dashboard</title>
+    <link rel='stylesheet' href='/javascripts/bootstrap/dist/css/bootstrap.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/modules/core/styles/nav.css' />
+  </head>
+  <body style="background-color:#222222;">
+	<nav ng-include=" './modules/core/views/header.client.view.html' " ></nav>
+	<div class="fluid-container ng-cloak">
+		{{{ body  }}}
+		<div ng-view> </div>
+	</div>
+  </body>
+
+	<!-- JS  Libraries -->
+
+  <script type='text/javascript' src='/lib/jquery/dist/jquery.min.js'></script>
+  <script type='text/javascript' src='/lib/bootstrap/dist/js/bootstrap.min.js'></script>
+  <script type='text/javascript' src='/lib/angular/angular.min.js'></script>
+  <script type='text/javascript' src='/lib/angular-route/angular-route.min.js'></script>
+
+  <script type='text/javascript' src='/modules/core/core.client.module.js'></script>
+  <script type='text/javascript' src='/modules/core/controllers/index.controller.client.js'></script>
+  <script type='text/javascript' src='/modules/core/config/core.client.routes.js'></script>
+  <script type='text/javascript' src='/modules/core/services/d3.client.service.js'></script>
+  <script type='text/javascript' src='/modules/core/services/hobo.client.service.js'></script>
+
+
+  <script type='text/javascript' src='/modules/leaderboard/leaderboard.client.module.js'></script>
+  <script type='text/javascript' src='/modules/leaderboard/config/leaderboard.client.routes.js'></script>
+  <script type='text/javascript' src='/modules/leaderboard/controllers/leaderboard.controller.client.js'></script>
+
+  <script type='text/javascript' src='/modules/energy-demand/energy-demand.client.module.js'></script>
+  <script type='text/javascript' src='/modules/energy-demand/controllers/demandgraph.client.controller.js'></script>
+  <script type='text/javascript' src='/modules/energy-demand/directives/energy-by-demand.client.directive.js'></script>
+
+  <script type='text/javascript' src='/app.js'></script>
+
+
+</html>

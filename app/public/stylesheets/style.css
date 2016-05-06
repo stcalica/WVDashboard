@@ -5,35 +5,41 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+nav{
+
+  margin-bottom: 50px !important;
+
+}
+
 a {
   color: #00B7FF;
 }
 
 .centers{
 	margin:auto;
-	width:100%;	
+	width:100%;
 	padding:50px;
-} 
+}
 
 .buildings {
 	width:350px;
-	height:300px;  
+	height:300px;
 	float: left;
 	margin-left:20px;
-	
-} 
+
+}
 
 .buildings img{
 
 	height:250px;
 	text-align:center;
-	margin:auto;  
+	margin:auto;
 
 }
 
 .buildings h3{
 	text-align:center;
-	color: white; 
+	color: white;
 }
 @font-face {
     font-family: 'LatoWebLight';
@@ -65,7 +71,7 @@ a {
 	width:100%;
 
 
-} 
+}
 
 /*Power grid related*/
 #grid{
@@ -80,7 +86,7 @@ a {
 	left: 207px;
 }
 
-#grid_1605_1{ 
+#grid_1605_1{
 	position: absolute;
 	top: 662px;
 	left: 38px;
@@ -102,54 +108,54 @@ a {
 #grid_1605_4{
 	position: absolute;
 	top:144px;
-	left:674px;	
+	left:674px;
 }
 
-#grid_1715_1{ 
+#grid_1715_1{
 	position: absolute;
 	top: 662px;
 	left: 147px;
 }
 
 /*Estimated x, y value deduced from element 1*/
-#grid_1715_2{ 
+#grid_1715_2{
 	position: absolute;
 	top: 400px;
 	left: 156px;
 }
 
 /*Deduced x value*/
-#grid_1590_1{ 
+#grid_1590_1{
 	position: absolute;
 	top: 662px;
 	left: 295px;
 }
 
-#grid_1590_2{ 
+#grid_1590_2{
 	position: absolute;
 	top: 442px;
 	left: 1226px;
 }
 
-#grid_1590_3{ 
+#grid_1590_3{
 	position: absolute;
 	top: 442px;
 	left: 1172px;
 }
 
-#grid_215_1{ 
+#grid_215_1{
 	position: absolute;
 	top: 662px;
 	left: 186px;
 }
 
-#grid_215_2{ 
+#grid_215_2{
 	position: absolute;
 	top: 482px;
 	left: 186px;
 }
 
-#grid_215_3{ 
+#grid_215_3{
 	position: absolute;
 	top: 482px;
 	left: 186px;
@@ -261,7 +267,7 @@ a {
 }
 
 #layer4_building_1715{
-	
+
 	position: absolute;
 	top: 218px;
 	left: 147px;
