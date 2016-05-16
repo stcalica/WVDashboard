@@ -16,6 +16,22 @@ a {
   color:#FFFFFF;
 }
 
+/*Dropdown menu background*/
+.dropdown-menu {
+	background-color: #777;
+}
+
+/*Dropdown menu text*/
+.dropdown-menu > li > a {
+	color: #ffffff;
+}
+
+/*Dropdown menu title*/
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
+	color: #ffffff;
+	background-color: transparent;
+}
+
 .centers{
 	margin:auto;
 	width:100%;
