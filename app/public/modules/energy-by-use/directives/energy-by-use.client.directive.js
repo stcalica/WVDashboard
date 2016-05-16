@@ -1,31 +1,27 @@
 (function(){
 
-	'use strict';
+    'use strict';
 
-	angular.module('energy-demand')
-	.directive('energyByDemand',energyDemand);
-
-
-	energyDemand.$inject = ['d3'];
-
-	function energyDemand(d3){
+    angular.module("energy-by-use")
+    .directive("energy-by-use", directive);
 
 
-			var directive = {
+    directive.$inject = ["d3"];
 
-				restrict: 'E',
-				link: link,
-				scope: {
-					data: '='
-				}
-			};//end of function
+    function directive(d3){
 
-			return directive;
+      var directive = {
 
-			/////
+        restrict: 'E',
+        link: link,
+        scope: {
+          data: '='
+        }
+      };//end of function
 
-
-			function link(scope, element){
+      return directive;
+      //////
+      function link(scope, element){
 				d3.d3().then(function(d3) {
 
 						console.log("Called me");
@@ -52,7 +48,9 @@
 		}//end of link function
 
 
-	}
+    }
+
+
 
 
 })();

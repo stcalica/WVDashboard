@@ -6,40 +6,44 @@
   .factory('hobo', hobo);
 
 
-  hobo.$inject = [];
+  hobo.$inject = ['$http'];
 
-  function hobo(){
+  function hobo($http){
 
-  	var zne;
-
-  	var energyDetails = {
-
-
-
-  	};
   	var factory = {
 
+      //stored in json file for easy changes
+  	 getZNE : getZNE,
+     getDaily:getDaily,
+     getMonthly:getMonthly,
+     getKitchen:getKitchen
+//   getPlugLoad:getPlugLoad,
+//   getLights:getLights,
+//   getSolar:getSolar,
+//   getEV:getEV,
+//   getHVAC:getHVAC
+//   getInstaHot:getInstaHot
 
-  		getZNE : getZNE,
-  		//getPlugLoad : getPlugLoad;
+  function getZNE(){
+  		//grab from json file
+  }
 
+  function getDaily(building){
+      //restAPI
+  }
 
+  function getMonthly(building){
+
+  }
+
+  function getKitchen(building){
+
+  }
 
   	};
 
-  	return factory;
+  return factory;
 
-  	function getZNE(){
-  		return ZNE;
-  	}
-
-  	function setZNE(z){
-  		ZNE=z;
-  	}
-
-  	//function getPlugLoad(){}
-
-  }
 
 
 })();

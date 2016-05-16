@@ -5,8 +5,8 @@
 	var dependencies = [
 		'ngRoute',
 		'core',
-		'leaderboard'
-		// 'energy-demand',
+		'leaderboard',
+		'energy-demand'
 		// 'energy-by-use'
 
 	]; // all our modules
