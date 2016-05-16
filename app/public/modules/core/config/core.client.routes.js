@@ -10,18 +10,18 @@
 		function Config($routeProvider){
 
 			$routeProvider
-
 			.when('/', {
 				templateUrl: '/modules/core/views/core.client.view.html'
+			})
+			.when('/building/:address',{
+					templateUrl: '/modules/core/building.client.view.html',
+					controller: 'Building',
+					controllerAs: 'B'
 			})
 			.otherwise({
 
 				redirectTo:'/'
 
-			})
-
-			.when('/energy-demand',{
-					templateUrl: '/modules/energy-demand/views/energy-demand.client.view.html'
 			});
 
 		}
