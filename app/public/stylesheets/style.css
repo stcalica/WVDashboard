@@ -16,6 +16,43 @@ a {
   color:#FFFFFF;
 }
 
+/* ################################################ */
+/* ######## Hoizontal Bar Graph ################### */
+/* ################################################ */
+
+.axis path,
+.axis line{
+  fill: none;
+  stroke:white;
+  shape-rendering:crispEdge;
+}
+
+.axis text{
+  /*font-family: sans-serif;*/
+  font-size: 10px;
+  color: #ffffff;
+}
+
+h1{
+  /*font-family: sans-serif;*/
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffffff;
+}
+.tick
+{
+  stroke-dasharray: 1, 2;
+}
+
+/* ################################################ */
+
+/* Should make each section take up a whole page */
+.section{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
 /*Dropdown menu background*/
 .dropdown-menu {
 	background-color: #777;
@@ -116,13 +153,7 @@ a {
 	position:relative;
 	height:100%;
 	width:100%;
-<<<<<<< HEAD
 } 
-=======
-
-
-}
->>>>>>> e2e38f9d8fa716b44f536a5460a20a2c79ed56f7
 
 /*Power grid related*/
 #grid{

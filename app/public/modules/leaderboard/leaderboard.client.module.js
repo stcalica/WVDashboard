@@ -4,7 +4,15 @@
 	
 	var dependencies = []; 
 	
-	angular.module('leaderboard', dependencies);
+	angular.module('leaderboard', dependencies)
+		.factory('d3Service', [function(){
+			var d3;
+
+
+			
+
+			return d3;
+		}]);
 
 	angular.module('leaderboard').run(initialize);
 
