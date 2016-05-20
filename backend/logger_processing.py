@@ -34,7 +34,7 @@ for b in buildings:
                     query += u + "=" + u + "+" + str(value) + ", "
 
                 query = query[:-2]
-                query += " WHERE timestamp = '" + line[1] +"';"
+                query += " WHERE building = '" + b + "' AND timestamp = '" + line[1] +"';"
                 print("query: %s" % query)
                     # UPDATE table SET s.usecase[u]
                         # print(row[c+2])
