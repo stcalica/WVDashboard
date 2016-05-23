@@ -1,5 +1,5 @@
 from buildings import buildings
-import requests, csv
+import requests, csv, os
 
 for b in buildings:
     for s in buildings[b]["serials"]:
@@ -12,11 +12,30 @@ for b in buildings:
             data = req.content.split("------------")
             #now need to strip out extra quotations and returns and newlines
             data = data[1].strip('"').strip().split('\r\n')
+            data = data[-20::]
             #somewhere here need to split last few lines of files
             #need to somewhere define default values also
-            #should do this across all data
-            for row in data[1:3]:
+            newest = open( serial_num + "_n.csv", 'wb' )
+
+            old_data = open( serial_num+"_o.csv", 'r')
+            w = csv.writer(newest)
+
+            for old, new in zip(old_data, data):
+                if old[1] == new[1]:
+                    continue
+                else:
+                    w.writerow(new.split(','))
+
+            newest.close()
+            old_data.close()
+
+            newest = open( serial_num+ "_n.csv", 'r')
+
+            #processing data
+            for row in newest:
                 line = row.split(',')
+                print row
+                print line
                 #printing a new entry to database
                 #two possible ones?
                 print("IF NOT EXISTS (SELECT * FROM table WHERE building = '" + b + "' AND timestamp = '"
@@ -36,6 +55,10 @@ for b in buildings:
                 query = query[:-2]
                 query += " WHERE building = '" + b + "' AND timestamp = '" + line[1] +"';"
                 print("query: %s" % query)
+
+            newest.close()
+            os.system("rm -f"+ serial_num + "_o.csv")
+            os.system("mv "+ serial_num + "_n.csv "+ serial_num + "_o.csv")
                     # UPDATE table SET s.usecase[u]
                         # print(row[c+2])
             #     channels = [for c in usecases[usecase] ]
