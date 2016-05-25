@@ -42,26 +42,26 @@ for b in buildings:
                 kitchen = 0
                 for i in light_channels:
                         print("i: " + str(i))
-                        lights += float(d[i+2])
+                        lights += float(d[i+1])
                         print("Lights :" + str(lights))
                 for i in kitchen_channels:
                         print("i: " + str(i))
-                        kitchen +=  float(d[i+2])
+                        kitchen +=  float(d[i+1])
                         print("Kitchen :" + str(kitchen))
 
                 for i in ev_channels:
                         print("i: " + str(i))
-                        ev += float(d[i+2])
+                        ev += float(d[i+1])
                         print("EV :" + str(ev))
 
                 for i in plugs_channels:
                         print("i: " + str(i))
-                        plugs += float(d[i+2])
+                        plugs += float(d[i+1])
                         print("Plugs :" + str(plugs))
 
                 for i in solar_channels:
                         print("i: " + str(i))
-                        solar += float(d[i])
+                        solar += float(d[i+1])
                         print("solar :" + str(solar))
 
                 print("lights: " + str(lights))
