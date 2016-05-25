@@ -1,69 +1,76 @@
 from buildings import buildings
 import requests, csv, os
+import psycopg2
+
+
+
+
+try:
+    conn = psycopg2.connect("dbname='feed' user='postgres' host='postgres' password='postgres'")
+except:
+    print "I am unable to connect to the database"
+
 
 for b in buildings:
+    print b
     for s in buildings[b]["serials"]:
         serials = s
         print(serials)
         for serial_num in serials:
-            print(serial_num)
+            print serial_num
             usecases = serials[serial_num] #dictionary with serial_num giving back the value which is also a dictionary
+            print(usecases)
+            #store the channels for each use
+            light_channels = usecases['lights']
+            kitchen_channels = usecases['kitchen']
+            solar_channels = usecases['solar']
+            ev_channels = usecases['ev']
+            plugs_channels= usecases['plugs']
             req = requests.get("http://webservice.hobolink.com/rest/public/devices/"+str(serial_num)+"/data_files/latest/txt")
             data = req.content.split("------------")
             #now need to strip out extra quotations and returns and newlines
             data = data[1].strip('"').strip().split('\r\n')
-            data = data[-20::]
-            #somewhere here need to split last few lines of files
-            #need to somewhere define default values also
-            newest = open( serial_num + "_n.csv", 'wb' )
+            data = (data[-20::]) #gets the last 20 lines/minutes
+            data  = [d.split(",") for d in data ]
 
-            old_data = open( serial_num+"_o.csv", 'r')
-            w = csv.writer(newest)
+            for d in data:
+                print d
+                lights = 0
+                ev = 0
+                solar = 0
+                plugs = 0
+                kitchen = 0
+                for i in light_channels:
+                        print("i: " + str(i))
+                        lights += float(d[i+2])
+                        print("Lights :" + str(lights))
+                for i in kitchen_channels:
+                        print("i: " + str(i))
+                        kitchen +=  float(d[i+2])
+                        print("Kitchen :" + str(kitchen))
 
-            for old, new in zip(old_data, data):
-                if old[1] == new[1]:
-                    continue
-                else:
-                    w.writerow(new.split(','))
+                for i in ev_channels:
+                        print("i: " + str(i))
+                        ev += float(d[i+2])
+                        print("EV :" + str(ev))
 
-            newest.close()
-            old_data.close()
+                for i in plugs_channels:
+                        print("i: " + str(i))
+                        plugs += float(d[i+2])
+                        print("Plugs :" + str(plugs))
 
-            newest = open( serial_num+ "_n.csv", 'r')
+                for i in solar_channels:
+                        print("i: " + str(i))
+                        solar += float(d[i])
+                        print("solar :" + str(solar))
 
-            #processing data
-            for row in newest:
-                line = row.split(',')
-                print row
-                print line
-                #printing a new entry to database
-                #two possible ones?
-                print("IF NOT EXISTS (SELECT * FROM table WHERE building = '" + b + "' AND timestamp = '"
-                    + line[1] +"') INSERT INTO table(building, timestamp) VALUES (" + b +", " + line[1] + ");")
-                # print("INSERT INTO table(building, timestamp) VALUES("+ b +", " + line[1] +")"
-                #     + " WHERE NOT EXISTS ( SELECT * FROM table WHERE building = '" + b + "' AND timestamp = '" + line[1]+"';")
-                query = "UPDATE table SET "
-                for u in usecases:
-                    print("usecase: %s" % u)
-                    value = 0
-                    for c in usecases[u]:
-                        print("channel: %s" % c)
-                        value += float(line[c+1])
-                    print("total value is: %s" % value)
-                    query += u + "=" + u + "+" + str(value) + ", "
+                print("lights: " + str(lights))
+                print("solar: " + str(solar))
+                print("kitchen: " + str(kitchen))
+                print("ev: " + str(ev))
+                print("plugs: " + str(plugs))
 
-                query = query[:-2]
-                query += " WHERE building = '" + b + "' AND timestamp = '" + line[1] +"';"
-                print("query: %s" % query)
-
-            newest.close()
-            os.system("rm -f"+ serial_num + "_o.csv")
-            os.system("mv "+ serial_num + "_n.csv "+ serial_num + "_o.csv")
-                    # UPDATE table SET s.usecase[u]
-                        # print(row[c+2])
-            #     channels = [for c in usecases[usecase] ]
-        #         for channel in usecases[usecase]:
-                    #  for line in data:
-                    #      row = line.split(',')
-                    #      print(row)
-                    #      print(row[channel])
+        #            kit =
+        #           plugload =
+                    #query = "INSERT INTO BUILDINGS(" + "0" +", "+str(d[0])+", "+str(d[1])+", "+str(d[2])+", "+str(d[3])+" , "+str(d[4])+", "+str(d[5])+", "+str(d[6])+", "+str(d[7])+")"
+                    #print query

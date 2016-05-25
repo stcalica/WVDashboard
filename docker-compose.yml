@@ -7,7 +7,7 @@ services:
     - /app:/usr/app/src
   ports:
     - "3000:3000"
-  expose: 
+  expose:
     - "3000"
   links:
    - postgres
@@ -18,8 +18,7 @@ services:
     - ./backend/:/usr/tasks/src
   links:
     - postgres
-    - rabbitmq
-  command: bash -c "celery -A tasks worker & && python task-client.py" 
+  command: bash -c "python logger_processing".py
  postgres:
   container_name: postgres
   environment:
@@ -30,8 +29,3 @@ services:
     - ./database/entrypoint:/docker-entrypoint-initdb.d/
   ports:
     - "5437:5437"
- rabbitmq:
-  container_name: rabbitmq
-  image: rabbitmq 
-  ports:
-    - "5627:5627"
