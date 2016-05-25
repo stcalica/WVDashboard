@@ -9,7 +9,7 @@ try:
     conn = psycopg2.connect("dbname='feed' user='postgres' host='postgres' password='postgres'")
 except:
     print "I am unable to connect to the database"
-
+#pull last twenty lines and prepare them to check against the new pool of data
 
 for b in buildings:
     print b
@@ -34,6 +34,8 @@ for b in buildings:
             data  = [d.split(",") for d in data ]
 
             for d in data:
+                #if d.timestamp and d.index is the same as the last pull of lines then skip this step
+                #use continue to skip to the next step
                 index = d[0]
                 date = d[1]
                 lights = 0
