@@ -34,12 +34,15 @@ for b in buildings:
             data  = [d.split(",") for d in data ]
 
             for d in data:
-                print d
+                index = d[0]
+                date = d[1]
                 lights = 0
                 ev = 0
                 solar = 0
                 plugs = 0
                 kitchen = 0
+                hvac = 0
+                instahot = 0
                 for i in light_channels:
                         print("i: " + str(i))
                         lights += float(d[i+1])
@@ -69,8 +72,5 @@ for b in buildings:
                 print("kitchen: " + str(kitchen))
                 print("ev: " + str(ev))
                 print("plugs: " + str(plugs))
-
-        #            kit =
-        #           plugload =
-                    #query = "INSERT INTO BUILDINGS(" + "0" +", "+str(d[0])+", "+str(d[1])+", "+str(d[2])+", "+str(d[3])+" , "+str(d[4])+", "+str(d[5])+", "+str(d[6])+", "+str(d[7])+")"
-                    #print query
+                query = "INSERT INTO BUILDINGS(" + str(index) +", "+str(b)+", "+str(date)+", "+str(kitchen)+", "+str(plugs)+" , "+str(lights)+", "+str(solar)+", "+str(ev)+", "+str(hvac)+", "+str(instahot)+")"
+                print query
