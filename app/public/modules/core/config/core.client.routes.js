@@ -17,6 +17,10 @@
 					templateUrl: '/modules/core/building.client.view.html',
 					controller: 'Building',
 					controllerAs: 'B'
+			}).when('/about',{
+					templateUrl: '/modules/core/about.client.view.html'
+			}).when('/contact',{
+					templateUrl: '/modules/core/contact.client.view.html'
 			})
 			.otherwise({
 
