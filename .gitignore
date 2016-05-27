@@ -7,3 +7,4 @@
 ./app/node_modules
 ./app/public/lib
 ./app/public/lib/*
+./.bash_profile
