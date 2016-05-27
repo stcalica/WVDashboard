@@ -7,6 +7,7 @@
 	to form a single column
 
 */
+
 CREATE TABLE log(
 	address char(10),
 	logged timestamp,
@@ -42,5 +43,29 @@ CREATE TABLE monthly(
 	ev int,
 	hvac int,
 	instahot int
+);
 
+
+CREATE TABLE hourly(
+	address char(10),
+  month timestamp,
+	kitchen int,
+	plugload int,
+	lights int,
+	solar int,
+	ev int,
+	hvac int,
+	instahot int
+);
+
+
+CREATE TABLE hourly_goal(
+	weekof timestamp,
+	goal int
+);
+
+
+CREATE TABLE daily_goal(
+	weekof timestamp,
+	goal int
 );
