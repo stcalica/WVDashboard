@@ -62,6 +62,8 @@
 						                .domain([0,categories.length])
 						                .range(colors);
 
+						// element[0] used to be "#wrapper", but that references HTML code,
+						// which we don't want because modularity. Element fixed that
 						var canvas = d3.select(element[0])
 						                .append('svg')
 						                .attr({'width':900,'height':500});
