@@ -14,7 +14,7 @@
 				templateUrl: '/modules/core/views/core.client.view.html'
 			})
 			.when('/building/:address',{
-					templateUrl: '/modules/core/building.client.view.html',
+					templateUrl: '/modules/core/views/building.client.view.html',
 					controller: 'Building',
 					controllerAs: 'vm'
 			}).when('/about',{
