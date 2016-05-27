@@ -6,7 +6,8 @@ import psycopg2
 
 
 try:
-    conn = psycopg2.connect("dbname='feed' user='postgres' host='postgres' password='postgres'")
+    conn = psycopg2.connect("dbname='feed' user='postgres' host='localhost' password='postgres'")
+    cur = conn.cursor()
 except:
     print "I am unable to connect to the database"
 #pull last twenty lines and prepare them to check against the new pool of data
@@ -32,6 +33,8 @@ for b in buildings:
             data = data[1].strip('"').strip().split('\r\n')
             data = (data[-20::]) #gets the last 20 lines/minutes
             data  = [d.split(",") for d in data ]
+
+            # dbindex = cur.fetchall()
 
             for d in data:
                 #if d.timestamp and d.index is the same as the last pull of lines then skip this step
@@ -74,5 +77,10 @@ for b in buildings:
                 print("kitchen: " + str(kitchen))
                 print("ev: " + str(ev))
                 print("plugs: " + str(plugs))
-                query = "INSERT INTO BUILDINGS(" + str(index) +", "+str(b)+", "+str(date)+", "+str(kitchen)+", "+str(plugs)+" , "+str(lights)+", "+str(solar)+", "+str(ev)+", "+str(hvac)+", "+str(instahot)+")"
-                print query
+                query = "INSERT INTO log VALUES ("  + str(index) + ", " + "\'" + str(b) + "\'" + ", " +  "\'" +str(date)+ "\'"+ ", "+str(kitchen)+", "+str(plugs)+" , "+str(lights)+", "+str(solar)+", "+str(ev)+", "+str(hvac)+", "+str(instahot)+")"
+                print query                
+                if index <= dbindex:
+                    continue
+                else:
+                    cur.execute(query)
+                    conn.commit()
