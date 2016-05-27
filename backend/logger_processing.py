@@ -80,14 +80,14 @@ def task():
                                 #print("i: " + str(i))
                                 solar += float(d[i+1])
                                 #print("solar :" + str(solar))
-
+                        logging.info("index: " + str(index))
                         logging.info("lights: " + str(lights))
                         logging.info("solar: " + str(solar))
                         logging.info("kitchen: " + str(kitchen))
                         logging.info("ev: " + str(ev))
                         logging.info("plugs: " + str(plugs))
                         query = "INSERT INTO log VALUES ("  + str(index) + ", " + "\'" + str(b) + "\'" + ", " +  "\'" +str(date)+ "\'"+ ", "+str(kitchen)+", "+str(plugs)+" , "+str(lights)+", "+str(solar)+", "+str(ev)+", "+str(hvac)+", "+str(instahot)+")"
-                        if index <= dbindex:
+                        if(int(index) <= int(dbindex)):
                             logging.debug("\t\tDID NOT INSERT=> dbindex\t: "+str(dbindex) + "\t\tindex: " + str(index) )
                             continue
                         else:

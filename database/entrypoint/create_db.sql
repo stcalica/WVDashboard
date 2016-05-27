@@ -21,44 +21,6 @@ CREATE TABLE log(
 	instahot real
 );
 
-CREATE TABLE daily(
-	address char(10),
-	day timestamp,
-	kitchen real,
-	plugload real,
-	lights real,
-	solar real,
-	ev real,
-	hvac real,
-	instahot real
-);
-
-
-CREATE TABLE monthly(
-	address char(10),
-  month timestamp,
-	kitchen real,
-	plugload real,
-	lights real,
-	solar real,
-	ev real,
-	hvac real,
-	instahot real
-);
-
-
-CREATE TABLE hourly(
-	address char(10),
-  month timestamp,
-	kitchen real,
-	plugload real,
-	lights real,
-	solar real,
-	ev real,
-	hvac real,
-	instahot real
-);
-
 
 CREATE TABLE hourly_goal(
 	weekof timestamp,
