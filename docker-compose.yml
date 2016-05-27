@@ -13,12 +13,10 @@ services:
    - postgres
  tasks:
   container_name: tasks
-  image: celery:3.1
-  volumes:
-    - ./backend/:/usr/tasks/src
+  build: ./backend
   links:
     - postgres
-  command: bash -c "python logger_processing".py
+  command: bash -c "python /usr/src/app/logger_processing".py
  postgres:
   container_name: postgres
   environment:
