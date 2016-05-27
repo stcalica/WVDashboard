@@ -1,4 +1,1 @@
-#!/bin/bash
 
-#python ./backend/HOBOgrab.py
-python ./dashboard runserver.py &
