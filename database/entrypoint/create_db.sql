@@ -9,63 +9,64 @@
 */
 
 CREATE TABLE log(
+	id int,
 	address char(10),
 	logged timestamp,
-	kitchen int,
-	plugload int,
-	lights int,
-	solar int,
-	ev int,
-	hvac int,
-	instahot int
+	kitchen real,
+	plugload real,
+	lights real,
+	solar real,
+	ev real,
+	hvac real,
+	instahot real
 );
 
 CREATE TABLE daily(
 	address char(10),
-	day timestamp;
-	kitchen int,
-	plugload int,
-	lights int,
-	solar int,
-	ev int,
-	hvac int,
-	instahot int
+	day timestamp,
+	kitchen real,
+	plugload real,
+	lights real,
+	solar real,
+	ev real,
+	hvac real,
+	instahot real
 );
 
 
 CREATE TABLE monthly(
 	address char(10),
   month timestamp,
-	kitchen int,
-	plugload int,
-	lights int,
-	solar int,
-	ev int,
-	hvac int,
-	instahot int
+	kitchen real,
+	plugload real,
+	lights real,
+	solar real,
+	ev real,
+	hvac real,
+	instahot real
 );
 
 
 CREATE TABLE hourly(
 	address char(10),
   month timestamp,
-	kitchen int,
-	plugload int,
-	lights int,
-	solar int,
-	ev int,
-	hvac int,
-	instahot int
+	kitchen real,
+	plugload real,
+	lights real,
+	solar real,
+	ev real,
+	hvac real,
+	instahot real
 );
 
 
 CREATE TABLE hourly_goal(
 	weekof timestamp,
-	goal int
+	goal real
 );
 
 
 CREATE TABLE daily_goal(
 	weekof timestamp,
-	goal int
+	goal real
 );

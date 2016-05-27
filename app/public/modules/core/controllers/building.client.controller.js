@@ -10,6 +10,7 @@
 
     function buildingController($routeParams){
       var address = $routeParams.address;
+      console.log(address);
       var vm = this;
       vm.address = address;
 
@@ -18,7 +19,7 @@
     //  vm.monthly = hobo.getMonthly(vm.address);
 
 
-//    vm.graph_data = 
+//    vm.graph_data =
 
 
 
