@@ -2,8 +2,8 @@
 
     'use strict';
 
-    angular.module("energy-by-use")
-    .directive("energy-by-use", directive);
+    angular.module("percent-goal")
+    .directive("percentZneGoal", directive);
 
 
     directive.$inject = ["d3"];
