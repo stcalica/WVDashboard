@@ -9,10 +9,5 @@
 
 	function CoreController( $rootScope, $scope){
 		var vm = this;
-	}
-
-
-
-
-
-})();
+	} // end CoreController fucntion
+})(); // end encompassing function

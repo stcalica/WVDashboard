@@ -6,12 +6,15 @@
 		'ngRoute',
 		'core',
 		'leaderboard',
-		'energy-demand'
-		// 'energy-by-use'
+		'energy-demand',
+		// used to be 'energy-by-use'
+		'percent-goal'
 
 	]; // all our modules
 
 	angular.module('dashboard', dependencies).config(Config); //.config(Config);
+
+	console.log('Loaded module dependencies: ', dependencies);
 
 	Config.$inject = ['$locationProvider'];
 
@@ -25,10 +28,6 @@
 	}
 
  	angular.element(document).ready(function(){
-
 		angular.bootstrap(document, ['dashboard']);
-
-
 	});
-
 })();
