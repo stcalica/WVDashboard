@@ -1,0 +1,22 @@
+Here are a bunch of links on how to do certain things in D3. This file is meant to
+give anyone who wants to work on a graph easy access to implementation examples.
+
+If you find any great examples or other resources, feel free to edit the file.
+
+Leaderboard Graph:
+- Adding images to the ends of the bars
+	- Adding a thing (we want an image, not text) to the end of a bar
+		http://www.recursion.org/d3-for-mere-mortals/
+		(look under "Adding Text and Axes")
+	- Adding an image to a D3 graph
+		http://stackoverflow.com/questions/14567809/how-to-add-an-image-to-an-svg-container-using-d3-js
+
+Line Graph:
+- Making the summed end_uses line a different color depending on whether it is
+  above or below the solar line
+  	- The hardish/slow but very effective way (treating the line between each point
+  	  as its own segment to allow individual segment coloring)
+  		http://fiddle.jshell.net/4xZwb/5/
+  	- The easyish/probably faster but dodgy-er way (finding the intersect points and
+  	  coloring the svg line using a linear gradient)
+  	  	http://jsfiddle.net/superboggly/2Tebe/
