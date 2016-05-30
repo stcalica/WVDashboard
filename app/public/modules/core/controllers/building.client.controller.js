@@ -49,6 +49,74 @@
 
     console.log('From Controller percent-goal: ', vm.percentGoalData);
 
+    // NEEDS UPDATE!!!!!!!!!!!!!!!!!!!
+    // test data for the energy demand graph
+    // symbol = end_use, price = value
+    // date is currently formatted "minute:hour"
+    vm.energyDemandData = [{
+      value: Math.random() * 100,
+      date: '00:1',
+      end_use: 'Sol'
+    },{
+      value: Math.random() * 100,
+      date: '30:1',
+      end_use: 'Sol'
+    },{
+      value: Math.random() * 100,
+      date: '00:2',
+      end_use: 'Sol'
+    },{
+      value: Math.random() * 100,
+      date: '30:2',
+      end_use: 'Sol'
+    },{
+      value: Math.random() * 100,
+      date: '00:3',
+      end_use: 'Sol'
+    },{
+      value: Math.random() * 100,
+      date: '00:1',
+      end_use: 'A'
+    },{
+      value: Math.random() * 100,
+      date: '30:1',
+      end_use: 'A'
+    },{
+      value: Math.random() * 100,
+      date: '00:2',
+      end_use: 'A'
+    },{
+      value: Math.random() * 100,
+      date: '30:2',
+      end_use: 'A'
+    },{
+      value: Math.random() * 100,
+      date: '00:3',
+      end_use: 'A'
+    },{
+      value: Math.random() * 100,
+      date: '00:1',
+      end_use: 'B'
+    },{
+      value: Math.random() * 100,
+      date: '30:1',
+      end_use: 'B'
+    },{
+      value: Math.random() * 100,
+      date: '00:2',
+      end_use: 'B'
+    },{
+      value: Math.random() * 100,
+      date: '30:2',
+      end_use: 'B'
+    },{
+      value: Math.random() * 100,
+      date: '00:3',
+      end_use: 'B'
+    }];
+
+    console.log('From Controller energyDemandData: ', vm.energyDemandData);
+
   //  vm.ZNE = hobo.getZNE();
   //  vm.daily = hobo.getDaily(vm.address);
   //  vm.monthly = hobo.getMonthly(vm.address);
