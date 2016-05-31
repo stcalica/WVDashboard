@@ -20,31 +20,31 @@
     // test data for the percent goal graph
     vm.percentGoalData = [{
       value: -6,
-      label: 'A'
+      datestr: '2016-05-07 21:36:07'
     },{
       value: 9,
-      label: 'B'
+      datestr: '2016-05-16 21:36:07'
     },{
-      value: Math.random() * 10,
-      label: 'C'
+      value: Math.random() * 100,
+      datestr: '2016-05-17 21:36:07'
     },{
-      value: Math.random() * 10,
-      label: 'D'
+      value: Math.random() * 100,
+      datestr: '2016-05-18 21:36:07'
     },{
-      value: Math.random() * 10,
-      label: 'E'
+      value: Math.random() * 100,
+      datestr: '2016-05-31 21:36:07'
     },{
-      value: Math.random() * 10,
-      label: 'f'
+      value: Math.random() * 100,
+      datestr: '2016-05-12 21:36:07'
     },{
-      value: Math.random() * 10,
-      label: 'G'
+      value: Math.random() * 100,
+      datestr: '2016-06-01 21:36:07'
     },{
-      value: Math.random() * 10,
-      label: 'H'
+      value: Math.random() * 100,
+      datestr: '2016-05-02 21:36:07'
     },{
-      value: Math.random() * 10,
-      label: 'I'
+      value: -52,
+      datestr: '2016-04-23 21:36:07'
     }];
 
     console.log('From Controller percent-goal: ', vm.percentGoalData);
