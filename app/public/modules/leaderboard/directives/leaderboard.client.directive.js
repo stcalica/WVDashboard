@@ -28,7 +28,7 @@
 			d3.d3().then(function(d3) {
 				console.log("Called Race Track Graph");
 									// scope.render  = function(data){
-					var categories= ['','215','1590','1605','1715'];
+					var categories= ['','215 Sage','1590 Tilia','1605 Tilia','1715 Tilia'];
 
 				    // Fake ZNE Goal
 				    var ZNE = 200;
@@ -47,8 +47,9 @@
 						}
 					});
 
+					// x axis goes from value 0 to 250 currently
 					var xscale = d3.scale.linear()
-					                .domain([10,250])
+					                .domain([0,250])	// changes scale of xaxis
 					                .range([0,722]);
 
 					var yscale = d3.scale.linear()
@@ -65,6 +66,7 @@
 					                .append('svg')
 					                .attr({'width':900,'height':500});
 
+					// grid line specifications (currently hidden, should be removed)
 					var grids = canvas.append('g')
 					                  .attr('id','grid')
 					                  .attr('transform','translate(150,10)')
@@ -94,7 +96,8 @@
 					        .tickValues(d3.range(5));
 
 					var y_xis = canvas.append('g')
-					                  .attr("transform", "translate(130,0)")
+										// This changes the label text offset!!!!
+					                  .attr("transform", "translate(230,0)")
 					                  .attr('id','yaxis')
 					                  .call(yAxis);
 
@@ -106,6 +109,7 @@
 					                  .call(xAxis)
 					;
 
+					// Bar specifications
 					var chart = canvas.append('g')
 					                    .attr("transform", "translate(150,0)")
 										// Prints the value of each bar on the bar
@@ -115,7 +119,8 @@
 					                    .enter()
 					                    .append('rect')
 					                    .attr('height',95)
-					                    .attr({'x':0,'y':function(d,i){ return yscale(i)+50; }})
+					                    // This changes the bar offset!!!
+					                    .attr({'x':100,'y':function(d,i){ return yscale(i)+50; }})
 					                    .style('fill',function(d){ 
 									      	if(d == Math.max.apply(Math, data)){
 											//if(data[d] > ZNE){ -->

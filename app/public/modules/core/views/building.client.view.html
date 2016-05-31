@@ -1,21 +1,31 @@
-<div class="container">
-
-  <div class="row">
-    <div class="col-md-12">
-      <!-- STILL USES DUMMY DATA!!!!!!!!!!!!! -->
-      <race-track-graph data="vm.leaderboardData"></race-track-graph>
+<div class="jumboron vertical-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Which research center is leading the team this week?</h1>
+        <!-- STILL USES DUMMY DATA!!!!!!!!!!!!! -->
+        <race-track-graph data="vm.leaderboardData"></race-track-graph>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>How does our energy use stack up to our ZNE goal?</h1>
+        <!-- STILL USES DUMMY DATA!!!!!!!!!!!!! -->
+        <percent-zne-goal data="vm.percentGoalData"></percent-zne-goal>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>How much power are we using daily?</h1>
+        <!-- STILL USES DUMMY DATA!!!!!!!!!!!!! -->
+        <energy-demand-graph data="vm.energyDemandData"></energy-demand-graph>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <!-- STILL USES DUMMY DATA!!!!!!!!!!!!! -->
-      <percent-zne-goal data="vm.percentGoalData"></percent-zne-goal>
+  <footer class="footer">
+    <div class="container">
+      <!-- NEEDS A WAY TO DISPLAY THE ADDRESS BASED ON WHICH BUILDING WAS SELECTED -->
+      <p>Address</p>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <!-- STILL USES DUMMY DATA!!!!!!!!!!!!! -->
-      <energy-demand-graph data="vm.energyDemandData"></energy-demand-graph>
-    </div>
-  </div>
+  </footer>
 </div>

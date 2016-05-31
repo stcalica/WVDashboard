@@ -13,7 +13,29 @@ nav{
 
 a {
   /*color: #00B7FF;*/
-  color:#FFFFFF;
+  color:white;
+}
+
+/* ################################################ */
+/* ######## Graph Container Class ################# */
+/* ##### (attributes inherited by all graphs) ##### */
+/* ################################################ */
+
+/*Header formatting*/
+.vertical-center {
+  /*All text color is white*/
+  color: white;
+  /*All axis lines and bar fill colors are white unless
+  otherwise specified in the javascript code*/
+  fill: white;	
+}
+
+/*Overall Graph Formatting*/
+.row{
+	min-height: 100%;	/*Fallback for browsers do NOT support vh unit */
+	min-height: 100vh;	/* These two lines are counted as one*/
+	display: flex;
+	align-items: center;
 }
 
 /* ################################################ */
@@ -21,9 +43,23 @@ a {
 /* ################################################ */
 
 g#yaxis text {
-	fill: #FFFFFF;
+	fill: white;
     font-size: 30px;
 }
+
+/* ################################################ */
+/* ######## Percent ZNE Bar Graph ################# */
+/* ################################################ */
+
+
+
+
+/* ################################################ */
+/* ######## Energy Demand Line Graph ############## */
+/* ################################################ */
+
+
+
 
 /* ################################################ */
 
@@ -32,22 +68,6 @@ g#yaxis text {
 	position: relative;
 	height: 100%;
 	width: 100%;
-}
-
-/*Dropdown menu background*/
-.dropdown-menu {
-	background-color: #777;
-}
-
-/*Dropdown menu text*/
-.dropdown-menu > li > a {
-	color: #ffffff;
-}
-
-/*Dropdown menu title*/
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
-	color: #ffffff;
-	background-color: transparent;
 }
 
 .centers{
@@ -88,16 +108,24 @@ g#yaxis text {
     text-rendering: optimizeLegibility;
 }
 
-@font-face {
-    font-family: 'LatoWeb';
-    src: url('../fonts/Lato-Regular.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
-         url('../fonts/Lato-Regular.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/Lato-Regular.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-    text-rendering: optimizeLegibility;
+/* ################################################ */
+/* ################## Navbar ###################### */
+/* ################################################ */
+
+/*Dropdown menu background*/
+.dropdown-menu {
+	background-color: #777;
+}
+
+/*Dropdown menu text*/
+.dropdown-menu > li > a {
+	color: white;
+}
+
+/*Dropdown menu title*/
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus{
+	color: white;
+	background-color: transparent;
 }
 
 /* Formatting for the links in the navbar */
@@ -113,22 +141,48 @@ g#yaxis text {
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus{
-	color:#FFFFFF;
+	color:white;
 	background-color: #777;
 }
 
 /* The text color of navbar links */
 .navbar-inverse .navbar-nav{
-	color:#FFFFFF;
+	color:white;
 }
 
 .navbar-inverse .navbar-nav > li > a{
-	color:#FFFFFF;
+	color:white;
 }
 
-/*a:active{
-	font-weight: bold;
-}*/
+/* ################################################ */
+/* ################## Footer ###################### */
+/* ################################################ */
+
+.footer{
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color: #FFCC33; /*Yellow*/
+}
+
+/* text within the footer*/
+.footer > .container > p{
+	color: white;
+	font-size: 30px;
+	position: absolute;
+	/*all this stuff is just to center the text*/
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	/*end of centering stuff*/
+}
+
+/* ################################################ */
+/* ################ Splash Page ################### */
+/* ################################################ */
 
 .splash{
 	position:relative;

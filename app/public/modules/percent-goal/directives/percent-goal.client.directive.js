@@ -26,9 +26,9 @@
 			d3.d3().then(function(d3) {
         console.log("Called percent-goal graph");
 
-        var margin = {top: 20, right: 20, bottom: 30, left: 40},
-                      width = 300 - margin.left - margin.right,
-                      height = 200 - margin.top - margin.bottom;
+        var margin = {top: 50, right: 20, bottom: 30, left: 40},
+                      width = 1000 - margin.left - margin.right,
+                      height = 667 - margin.top - margin.bottom;
   
         var xScale = d3.scale.ordinal()
           .rangeRoundBands([0, width], .2);
