@@ -17,6 +17,44 @@ a {
 }
 
 /* ################################################ */
+/* ######## Bootstrap Column Redefinition ######### */
+/* ################################################ */
+
+/*fluid-container > .col-xs-30,
+fluid-container > .col-sm-30,
+fluid-container > .col-md-30,
+fluid-container > .col-lg-30 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+fluid-container > .col-xs-30 {
+    width: 20%;
+    float: left;
+}
+@media (min-width: 768px) {
+fluid-container > .col-sm-30 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    fluid-container > .col-md-30 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    fluid-container > .col-lg-30 {
+        width: 20%;
+        float: left;
+    }
+}*/
+
+
+/* ################################################ */
 /* ######## Graph Container Class ################# */
 /* ##### (attributes inherited by all graphs) ##### */
 /* ################################################ */
@@ -31,7 +69,7 @@ a {
 }
 
 /*Overall Graph Formatting*/
-.row{
+.jumboron > .container > .row{
 	min-height: 100%;	/*Fallback for browsers do NOT support vh unit */
 	min-height: 100vh;	/* These two lines are counted as one*/
 	display: flex;
@@ -60,6 +98,162 @@ g#yaxis text {
 
 
 
+/* ################################################ */
+/* ################# About Page ################### */
+/* ################################################ */
+
+/*Defines a row to be half the height of the screen*/
+#vertical-half-screen{
+	min-height: 46%;	/*Fallback for browsers do NOT support vh unit */
+	min-height: 46vh;	/* These two lines are counted as one*/
+	display: flex;
+	align-items: center;
+}
+
+#center-paragraph{
+	color: white;
+	font-size: 30px;
+	position: relative;
+	/*all this stuff is just to center the text*/
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	text-align: left;
+	/*end of centering stuff*/
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+/*West Village feedback logo image formatting*/
+/*#about-logo-WVfeedback{
+	background: url("/images/WVED_logo_bolt.svg") no-repeat;
+	background-size: contain;
+	background-position: center;
+	opacity: 0.5;
+}*/
+
+.about-logo-WVfeedback-bg p{
+	color: white;
+	font-size: 24px;
+	position: relative;
+	/*all this stuff is just to center the text*/
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	text-align: left;
+	/*end of centering stuff*/
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+.about-logo-WVfeedback-bg object{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+#link{
+	color: lightblue;
+}
+
+.about-logo-ZNE-bg p{
+	color: white;
+	font-size: 20px;
+	position: relative;
+	/*all this stuff is just to center the text*/
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	text-align: left;
+	/*end of centering stuff*/
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+.about-logo-ZNE-bg object{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.about-logo-WV-bg p{
+	color: white;
+	font-size: 24px;
+	position: relative;
+	/*all this stuff is just to center the text*/
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	text-align: left;
+	/*end of centering stuff*/
+}
+
+.about-logo-WV-bg object{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.about-logo-location-bg p{
+	color: white;
+	font-size: 18px;
+	position: relative;
+	/*all this stuff is just to center the text*/
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	text-align: left;
+	/*end of centering stuff*/
+}
+
+.about-logo-location-bg object{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.about-logo-cEnergi-bg p{
+	color: white;
+	font-size: 18px;
+	position: relative;
+	/*all this stuff is just to center the text*/
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	text-align: left;
+	/*end of centering stuff*/
+}
+
+.about-logo-cEnergi-bg object{
+	position: absolute;
+    left: 0;
+    top: 25%;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+
+/* ################################################ */
+/* ################# Contact Page ################# */
+/* ################################################ */
 
 /* ################################################ */
 

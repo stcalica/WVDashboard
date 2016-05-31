@@ -18,9 +18,9 @@
 					controller: 'Building',
 					controllerAs: 'vm'
 			}).when('/about',{
-					templateUrl: '/modules/core/about.client.view.html'
+					templateUrl: '/modules/core/views/about.client.view.html'
 			}).when('/contact',{
-					templateUrl: '/modules/core/contact.client.view.html'
+					templateUrl: '/modules/core/views/contact.client.view.html'
 			})
 			.otherwise({
 
