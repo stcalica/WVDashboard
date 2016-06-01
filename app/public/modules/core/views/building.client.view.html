@@ -15,10 +15,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-9">
         <h1>How much power are we using daily?</h1>
         <!-- STILL USES DUMMY DATA!!!!!!!!!!!!! -->
         <energy-demand-graph data="vm.energyDemandData"></energy-demand-graph>
+      </div>
+      <div class="col-md-3">
+        <div class="onoffswitch">
+          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+          <label class="onoffswitch-label" for="myonoffswitch">
+              <div class="onoffswitch-inner"></div>
+              <div class="onoffswitch-switch"></div>
+          </label>
+        </div>
       </div>
     </div>
   </div>

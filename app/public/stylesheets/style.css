@@ -29,7 +29,6 @@ fluid-container > .col-lg-30 {
     padding-right: 10px;
     padding-left: 10px;
 }
-
 fluid-container > .col-xs-30 {
     width: 20%;
     float: left;
@@ -74,6 +73,103 @@ fluid-container > .col-sm-30 {
 	min-height: 100vh;	/* These two lines are counted as one*/
 	display: flex;
 	align-items: center;
+}
+
+/* ################################################ */
+/* ################ On/off switch ################# */
+/* ################################################ */
+
+.onoffswitch {
+  position: relative;
+  width: 122px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  /* border: 1px solid #ccc; */
+  border-radius: 44px;
+}
+
+.onoffswitch-inner {
+  width: 200%;
+  margin-left: -100%;
+  -moz-transition: margin 0.3s ease-in 0s;
+  -webkit-transition: margin 0.3s ease-in 0s;
+  -o-transition: margin 0.3s ease-in 0s;
+  transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  float: left;
+  width: 50%;
+  height: 44px;
+  padding: 0;
+  line-height: 44px;
+  font-size: 16px;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 44px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px 0px inset;
+}
+
+.onoffswitch-inner:before {
+  /* Text like "on" would go in content */
+  content: "";
+  padding-left: 27px;
+  /*  "ON" color  */
+  background-color: #FFCC33;
+  color: #FFFFFF;
+  border-radius: 44px 0 0 44px;
+}
+
+.onoffswitch-inner:after {
+  /* Text like "off" would go in content */
+  content: "";
+  padding-right: 27px;
+  background-color: #EEEEEE;
+  color: #999999;
+  text-align: right;
+  border-radius: 0 44px 44px 0;
+}
+
+.onoffswitch-switch {
+  width: 44px;
+  margin: 0px;
+  background: #FFFFFF;
+  border: 1px solid #ccc;
+  border-radius: 44px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 76px;
+  -moz-transition: all 0.3s ease-in 0s;
+  -webkit-transition: all 0.3s ease-in 0s;
+  -o-transition: all 0.3s ease-in 0s;
+  transition: all 0.3s ease-in 0s;
+  background-image: -webkit-linear-gradient(top, #ddd 0%, white 100%);
+  box-shadow: rgba(0, 0, 0, 0.1) -1px 0px 1px 1px, rgba(255, 255, 255, 0.5) 0 1px 0 1px inset;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
 }
 
 /* ################################################ */
