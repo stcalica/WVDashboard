@@ -140,7 +140,7 @@ fluid-container > .col-sm-30 {
   /* Text like "off" would go in content */
   content: "";
   padding-right: 27px;
-  background-color: #EEEEEE;
+  background-color: grey;
   color: #999999;
   text-align: right;
   border-radius: 0 44px 44px 0;
@@ -316,9 +316,9 @@ g#yaxis text {
 
 .about-logo-location-bg object{
 	position: absolute;
-    left: 0;
+    left: 25%;
     top: 0;
-    width: 100%;
+    width: auto;
     height: 100%;
     z-index: 1;
     opacity: 0.3;

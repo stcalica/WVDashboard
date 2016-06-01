@@ -23,7 +23,7 @@
       console.log("Link");
       console.log('scope.data', scope.data);
       var data = scope.data;
-			d3.d3().then(function(d3) {
+      d3.d3().then(function(d3) {
         console.log("Called percent-goal graph");
 
         var margin = {top: 50, right: 20, bottom: 30, left: 40},
@@ -32,32 +32,32 @@
 
         var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S");
         data.forEach(function(d) {
-        	d.date = parseDate.parse(d.datestr);
+          d.date = parseDate.parse(d.datestr);
         })
 
         var barRawWidth = width / (data.length);
-		var barPadding = 35;
-		var xStart = barPadding + (barRawWidth/2);
-		var barWidth = barRawWidth - (barPadding*2);
+    var barPadding = 35;
+    var xStart = barPadding + (barRawWidth/2);
+    var barWidth = barRawWidth - (barPadding*2);
         // var timeFormat = d3.time.format("%m-%d").parse;
   
         // var xScale = d3.scale.ordinal()
         //   .rangeRoundBands([0, width], .2);
 
 
-		// var x = d3.time.scale().range([0, width]);          
-		// var x = d3.time.scale().range([xStart, width-xStart]);          
+    // var x = d3.time.scale().range([0, width]);          
+    // var x = d3.time.scale().range([xStart, width-xStart]);          
 
-		var x = d3.scale.ordinal()
-			.domain(data.map(function(d){
-				return d.date;
-			} ))
-			.rangeRoundBands([0, width], 0.1);
+    var x = d3.scale.ordinal()
+      .domain(data.map(function(d){
+        return d.date;
+      } ))
+      .rangeRoundBands([0, width], 0.1);
 
-		// var x = d3.time.scale()
-		    // .domain([new Date(data[0].date), d3.time.day.offset(new Date(data[data.length - 1].date), 1)])
-		    // .domain([new Date(data[0].date), 7])
-		    // .rangeRound([0, width - margin.left - margin.right]);
+    // var x = d3.time.scale()
+        // .domain([new Date(data[0].date), d3.time.day.offset(new Date(data[data.length - 1].date), 1)])
+        // .domain([new Date(data[0].date), 7])
+        // .rangeRound([0, width - margin.left - margin.right]);
 
 
         var yScale = d3.scale.linear()
@@ -72,8 +72,12 @@
           .tickPadding(height/2)
           // .tickSize([0,height/2])
           .ticks(3)
-          // .ticks(d3.time.day, 7	)
-          .tickFormat(d3.time.format('%m-%d'));
+          // .ticks(d3.time.day, 7  )
+          // .tickFormat(d3.time.format('%m-%d'));
+
+
+          // .tickFormat( function(d){
+          // });
           // .ticks(function(d) {
           //   return d.datestr;
           // });
@@ -81,15 +85,26 @@
         // var xExtent = d3.extent(data, function(d) { return d.date; });
         // var nxExtent = [d3.time.day.offset(xExtent[0], -1) , d3.time.day.offset(xExtent[1],1)];
         // console.log(d3.time.day.offset(xExtent[0], -2));
-		// var nxExtent = [d3.time.month.offset(xExtent[0], -1), d3.time.month.offset(xExtent[1], 0)];
-		// x.domain(xExtent);
+    // var nxExtent = [d3.time.month.offset(xExtent[0], -1), d3.time.month.offset(xExtent[1], 0)];
+    // x.domain(xExtent);
+        var diff = Math.abs(data[1].date - data[0].date);
 
-		
+            if( diff <= 3600000)
+              xAxis.tickFormat(d3.time.format('%H:%M'));
+            else if( diff == 86400000)
+              xAxis.tickFormat(d3.time.format('%m/%d'));
+            else if( diff == 604800000)
+              xAxis.tickFormat(d3.time.format('%m/%d'));
+            else if( diff >= 2628000000)
+              xAxis.tickFormat(d3.time.format('%m/%Y'));
 
+
+    
+      console.log(data[0].date - data[1].date);
         var yAxis = d3.svg.axis()
           .scale(yScale)
-          .orient("left")
-          .tickFormat('');
+          .orient("left");
+          // .tickFormat('');
           // .tickValues([-12,-9,-6,-3,0,3,6,9,12]);
 
         // xScale.domain(data.map(function(d) {
@@ -106,8 +121,8 @@
 
         svg.append("g")
           .attr("class", "axis")
-          .attr("transform", "translate(0," + height/2 + ")")
           .call(xAxis)
+          .attr("transform", "translate(0," + height/2 + ")")
           .selectAll("text")
           .style("text-anchor", "end");
           // .attr("dx", "-.8em")
@@ -130,24 +145,41 @@
           })
           // .attr('x', function(d) { return x(new Date(d.date)); })
           .attr("y", function(d) {
-            return  d.value < 0 ? yScale(0) + 6 : yScale(d.value);
+            if(d.value/d.zne > 1){
+              return yScale(0) + 6;
+            }
+            else if( d.value/d.zne < 1){
+              return  yScale( (d.value/d.zne) * 100 );
+            }
+            else{
+              return yScale(0);
+            }
+
           })
           .attr("width", x.rangeBand())
           // .attr("width", 5)
           .attr("height", function(d) {
-             return  Math.abs(yScale(d.value) - yScale(0));
+            if(d.value/d.zne > 1){
+              return Math.abs( yScale( ((d.value/d.zne) - 1) *100 )- yScale(0)  );
+            }
+              else if(d.value/d.zne < 1){
+                return Math.abs( yScale( (d.value/d.zne) * 100) - yScale(0) );
+              }
+              else{
+                return 0;
+              }
           })
           .style("fill", function(d) {
-            if (d.value < 0) {
+            if(Math.abs( d.value/d.zne) > 1) {
               return "red";
-            } else if (d.value > 0) {
+            } else if ( Math.abs(d.value/d.zne) < 1) {
               return "green";
             } else {
               return "lightgray";
             }
           });
-				}, true); // end d3 function
-			}); // end scope.$watch function
-	  }//end of link function
+        }, true); // end d3 function
+      }); // end scope.$watch function
+    }//end of link function
   } //end of directive(d3) function
 })(); // end of encompassing function

@@ -18,16 +18,20 @@
     vm.leaderboardData = [
       {                 
         "energy_sum_week": 100, // (sum(end uses) - solar) over this last week
-        "zne_sum_week": 90      // sum(ZNE daily goals) over this last week
+        "zne_sum_week": 90,     // sum(ZNE daily goals) over this last week
+        "address": "215"
       },{
         "energy_sum_week": 70,
-        "zne_sum_week": 90
+        "zne_sum_week": 90,
+        "address": "1590"
       },{
         "energy_sum_week": 80,
-        "zne_sum_week": 90
+        "zne_sum_week": 90,
+        "address": "1605"
       },{
         "energy_sum_week": 130,
-        "zne_sum_week": 90
+        "zne_sum_week": 90,
+        "address": "1715"
       }
     ];
 
@@ -35,32 +39,41 @@
 
     // test data for the percent goal graph
     vm.percentGoalData = [{
-      value: Math.random() * 100,
-      datestr: '2016-05-07 21:36:07'
+      zne: 50,
+      value: 35,
+      datestr: '2016-05-01 15:42:13'
     },{
-      value: Math.random() * 100,
-      datestr: '2016-05-16 21:36:07'
+      zne: 50,
+      value: 9,
+      datestr: '2016-05-02 15:42:13'
     },{
+      zne: 50,
       value: Math.random() * 100,
-      datestr: '2016-05-17 21:36:07'
+      datestr: '2016-05-03 15:42:13'
     },{
+      zne: 50,
       value: Math.random() * 100,
-      datestr: '2016-05-18 21:36:07'
+      datestr: '2016-05-04 15:42:13'
     },{
+      zne: 50,
       value: Math.random() * 100,
-      datestr: '2016-05-31 21:36:07'
+      datestr: '2016-05-05 15:42:13'
     },{
+      zne: 50,
       value: Math.random() * 100,
-      datestr: '2016-05-12 21:36:07'
+      datestr: '2016-05-06 15:42:13'
     },{
+      zne: 50,
       value: Math.random() * 100,
-      datestr: '2016-06-01 21:36:07'
+      datestr: '2016-05-07 15:42:13'
     },{
+      zne: 50,
       value: Math.random() * 100,
-      datestr: '2016-05-02 21:36:07'
+      datestr: '2016-05-08 15:42:13'
     },{
-      value: -52,
-      datestr: '2016-04-23 21:36:07'
+      zne: 50,
+      value: 50,
+      datestr: '2016-05-09 15:42:13'
     }];
 
     console.log('From Controller percent-goal: ', vm.percentGoalData);
@@ -70,66 +83,47 @@
     // symbol = end_use, price = value
     // date is currently formatted "minute:hour"
     vm.energyDemandData = [{
-      value: Math.random() * 100,
-      date: '00:1',
-      end_use: 'Sol'
-    },{
-      value: Math.random() * 100,
-      date: '30:1',
-      end_use: 'Sol'
-    },{
-      value: Math.random() * 100,
-      date: '00:2',
-      end_use: 'Sol'
-    },{
-      value: Math.random() * 100,
-      date: '30:2',
-      end_use: 'Sol'
-    },{
-      value: Math.random() * 100,
-      date: '00:3',
-      end_use: 'Sol'
-    },{
-      value: Math.random() * 100,
-      date: '00:1',
-      end_use: 'A'
-    },{
-      value: Math.random() * 100,
-      date: '30:1',
-      end_use: 'A'
-    },{
-      value: Math.random() * 100,
-      date: '00:2',
-      end_use: 'A'
-    },{
-      value: Math.random() * 100,
-      date: '30:2',
-      end_use: 'A'
-    },{
-      value: Math.random() * 100,
-      date: '00:3',
-      end_use: 'A'
-    },{
-      value: Math.random() * 100,
-      date: '00:1',
-      end_use: 'B'
-    },{
-      value: Math.random() * 100,
-      date: '30:1',
-      end_use: 'B'
-    },{
-      value: Math.random() * 100,
-      date: '00:2',
-      end_use: 'B'
-    },{
-      value: Math.random() * 100,
-      date: '30:2',
-      end_use: 'B'
-    },{
-      value: Math.random() * 100,
-      date: '00:3',
-      end_use: 'B'
-    }];
+        "date": "2016-05-01 15:42:13",
+        "Kitchen": 1,
+        "Lights": 2,
+        "Plugs": 3,
+        "EV": 4,
+        "Solar": 5,
+        "Sum": 15
+      }, {
+        "date": "2016-05-02 15:42:13",
+        "Kitchen": 1,
+        "Lights": 2,
+        "Plugs": 3,
+        "EV": 4,
+        "Solar": 3,
+        "Sum": 12
+      }, {
+        "date": "2016-05-03 15:42:13",
+        "Kitchen": 1,
+        "Lights": 2,
+        "Plugs": 3,
+        "EV": 4,
+        "Solar": 12,
+        "Sum": 42
+      }, {
+        "date": "2016-05-04 15:42:13",
+        "Kitchen": 1,
+        "Lights": 2,
+        "Plugs": 3,
+        "EV": 4,
+        "Solar": 8,
+        "Sum": 67
+      }, {
+        "date": "2016-05-05 15:42:13",
+        "Kitchen": 1,
+        "Lights": 2,
+        "Plugs": 3,
+        "EV": 4,
+        "Solar": 7,
+        "Sum": 22
+      }
+    ];
 
     console.log('From Controller energyDemandData: ', vm.energyDemandData);
 
