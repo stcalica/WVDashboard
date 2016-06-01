@@ -277,7 +277,7 @@ g#yaxis text {
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.1;
 }
 
 .about-logo-WV-bg p{
@@ -321,7 +321,7 @@ g#yaxis text {
     width: auto;
     height: 100%;
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .about-logo-cEnergi-bg p{
