@@ -26,11 +26,29 @@
 			console.log('scope.data', scope.data);
 			var data = scope.data;
 			d3.d3().then(function(d3) {
-				console.log("Called Race Track Graph");
+					console.log("Called Race Track Graph");
+					console.log("leaderboard data: ", data);
+					console.log("enenergy_sum_week: ", data[0]['energy_sum_week']);
+
 									// scope.render  = function(data){
 					var categories= ['','215 Sage','1590 Tilia','1605 Tilia','1715 Tilia'];
 
-				    // Fake ZNE Goal
+					var energy_vals = [0,0,0,0];
+					var zne_vals = [0,0,0,0];
+					// console.log('energy_vals', energy_vals);
+					// console.log('energy_vals[0]', energy_vals[0]);
+
+					for (var i = 0; i < 4; i++ ) {
+						// console.log(i);
+						// console.log("data[i]", data[i]);
+						// console.log( "print in loop", data[i]['energy_sum_week']);
+						energy_vals[i] = data[i]['energy_sum_week'];
+						zne_vals[i] = data[i]['zne_sum_week'];
+					}
+
+					console.log("enenergy_sum_week for energy_vals[0]: ", energy_vals[0]);
+
+				    // Fake ZNE Goal !!!!!!!!!!!!!!!!!!!!!!
 				    var ZNE = 200;
 				    
 					var colors = ['#0000b4','#0082ca','#0094ff','#0d4bcf'];
@@ -38,7 +56,7 @@
 					var grid = d3.range(25).map(function(i){
 					    return {'x1':0,'y1':0,'x2':0,'y2':0};
 					});
-
+ 
 					var tickVals = grid.map(function(d,i){
 						if(i>0){ 
 							return i*10;
@@ -115,14 +133,14 @@
 										// Prints the value of each bar on the bar
 										// .attr('id','bars')
 					                    .selectAll('rect')
-					                    .data(data)
+					                    .data(energy_vals)
 					                    .enter()
 					                    .append('rect')
 					                    .attr('height',95)
 					                    // This changes the bar offset!!!
 					                    .attr({'x':100,'y':function(d,i){ return yscale(i)+50; }})
 					                    .style('fill',function(d){ 
-									      	if(d == Math.max.apply(Math, data)){
+									      	if(d == Math.max.apply(Math, energy_vals)){
 											//if(data[d] > ZNE){ -->
 									        	return "green";
 									      	} else {
@@ -133,14 +151,14 @@
 				   
 				    // Animation when the graph updates
 				    var transit = d3.select("svg").selectAll("rect")
-				                        .data(data)
+				                        .data(energy_vals)
 				                        .transition()
 				                        .duration(1000) 
 				                        .attr("width", function(d) {return xscale(d); });
 
 				    var transitext = d3.select('#bars')
 				                        .selectAll('text')
-				                        .data(data)
+				                        .data(energy_vals)
 				                        .enter()
 				                        .append('text')
 				                        .attr({'x':function(d) {return xscale(d)-200; },'y':function(d,i){ return yscale(i)+35; }})

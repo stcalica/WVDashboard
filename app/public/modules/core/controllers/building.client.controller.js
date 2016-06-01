@@ -14,15 +14,31 @@
     var vm = this;
     vm.address = address;
     // test data for the Leaderboard graph
-    vm.leaderboardData = [100,150,200,175];
+    // buildings always in order 215,1590,1605,1715
+    vm.leaderboardData = [
+      {                 
+        "energy_sum_week": 100, // (sum(end uses) - solar) over this last week
+        "zne_sum_week": 90      // sum(ZNE daily goals) over this last week
+      },{
+        "energy_sum_week": 70,
+        "zne_sum_week": 90
+      },{
+        "energy_sum_week": 80,
+        "zne_sum_week": 90
+      },{
+        "energy_sum_week": 130,
+        "zne_sum_week": 90
+      }
+    ];
+
     console.log('From Controller leaderboardData: ', vm.leaderboardData);
 
     // test data for the percent goal graph
     vm.percentGoalData = [{
-      value: -6,
+      value: Math.random() * 100,
       datestr: '2016-05-07 21:36:07'
     },{
-      value: 9,
+      value: Math.random() * 100,
       datestr: '2016-05-16 21:36:07'
     },{
       value: Math.random() * 100,
