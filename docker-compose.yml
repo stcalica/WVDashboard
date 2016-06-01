@@ -16,7 +16,7 @@ services:
   build: ./backend
   links:
     - postgres
-  command: bash -c "python /usr/src/app/logger_processing".py
+  command: bash -c "python /usr/src/app/logger_processing.py"
  postgres:
   container_name: postgres
   environment:
@@ -27,3 +27,9 @@ services:
     - ./database/entrypoint:/docker-entrypoint-initdb.d/
   ports:
     - "5437:5437"
+ bot:
+  container_name: bot
+  build: ./twitterBot
+  links:
+    - postgres
+  command: ["-u", "sendTwitter.py"]

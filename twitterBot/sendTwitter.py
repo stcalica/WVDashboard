@@ -24,7 +24,7 @@ def task():
     twitter = Twython(APP_KEY, APP_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
     #Get Winner and update according Flag
-    jsonData = '[{"energy_sum_week":0,"zne_sum_week":90,"address":"215"},{"energy_sum_week":100,"zne_sum_week":90,"address":"1590"},{"energy_sum_week":10,"zne_sum_week":90,"address":"1605"},{"energy_sum_week":130,"zne_sum_week":90,"address":"1715"}]'
+    jsonData = '[{"energy_sum_week":0,"zne_sum_week":90,"address":"215"},{"energy_sum_week":0,"zne_sum_week":90,"address":"1590"},{"energy_sum_week":10,"zne_sum_week":90,"address":"1605"},{"energy_sum_week":130,"zne_sum_week":90,"address":"1715"}]'
     jdata = json.loads(jsonData)
     for d in jdata:
         for key, value in d.iteritems():
