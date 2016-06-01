@@ -1,6 +1,6 @@
 #python config file for logger processing
 buildings = {
-		    "1605":{
+		    "1590":{
 			  "serials":[{
 					"10459715":{
 						"kitchen": [1,2,3],
