@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 //local testing
-//var connectionString = 'pg://postgres:barry1@localhost/feed';
+var connectionString = 'pg://postgres:barry1@localhost/feed';
 //production
-var connectionString = 'pg://postgres:postgres@postgres/feed';
+//var connectionString = 'pg://postgres:postgres@postgres/feed';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -80,15 +80,25 @@ router.get('/api/all', function(req, res){
 
       if (err) return sendError(err);
 
-      client.query("select * from log;", function(err, results) {
-            // Done with the client.
-            done();
+        var query = client.query("select * from log;", function(err, results) {
+        var resuts = [];
+        query.on('row', function(row){
+          // Handle any errors.
+          if (err) return sendError(err);
+          results.push(row);
+        });
+        query.on('end', function(){
 
-            // Handle any errors.
-            if (err) return sendError(err);
+          // Done with the client.
+          done();
+          return res.json(results);
+        });
+
+
+
+
 
             // Return result
-            return res.json(results);
             });
     });
 });
@@ -103,16 +113,20 @@ router.get('/api/current', function(req, res){
       if (err) return sendError(err);
 
 
-      client.query("SELECT * FROM log WHERE (logged >= date_trunc('week', CURRENT_TIMESTAMP - interval '1 week') AND logged <= date_trunc('week', CURRENT_TIMESTAMP));", function(err, results) {
-            // Done with the client.
-            done();
+        var query = client.query("SELECT * FROM log WHERE (logged >= date_trunc('week', CURRENT_TIMESTAMP - interval '1 week') AND logged <= date_trunc('week', CURRENT_TIMESTAMP));", function(err, results) {
+                var resuts = [];
+                query.on('row', function(row){
+                  // Handle any errors.
+                  if (err) return sendError(err);
+                  results.push(row);
+                });
+                query.on('end', function(){
 
-            // Handle any errors.
-            if (err) return sendError(err);
-
-            // Return result
-            return res.json(results);
-            });
+                  // Done with the client.
+                  done();
+                  return res.json(results);
+                });
+        });
     });
 });
 
@@ -130,18 +144,20 @@ router.get('/api/:month/:day/:year', function(req, res){
       var dateParams = "date \'"+year+"-"+month+"-"+day+"\'";
       var queryStr = "SELECT * FROM log WHERE logged >="+dateParams+";";
 
-      client.query( queryStr, function(err, results) {
-            // Done with the client.
-            done();
-
-            // Handle any errors.
-            if (err) return sendError(err);
-
-            // Return result
-            return res.json(results);
-            });
+    var query =   client.query( queryStr, function(err, results) {
+      var resuts = [];
+      query.on('row', function(row){
+        // Handle any errors.
+        if (err) return sendError(err);
+        results.push(row);
+      });
+      query.on('end', function(){
+        // Done with the client.
+        done();
+        return res.json(results);
+      });
     });
+  });
 });
-
 
 module.exports = router;
