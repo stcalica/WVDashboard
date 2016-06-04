@@ -32,6 +32,7 @@
 
 									// scope.render  = function(data){
 					var categories= ['','215 Sage','1590 Tilia','1605 Tilia','1715 Tilia'];
+					var bar_thickness = 95;
 
 					var energy_vals = [0,0,0,0];
 					var zne_vals = [0,0,0,0];
@@ -47,9 +48,6 @@
 					}
 
 					console.log("enenergy_sum_week for energy_vals[0]: ", energy_vals[0]);
-
-				    // Fake ZNE Goal !!!!!!!!!!!!!!!!!!!!!!
-				    var ZNE = 200;
 				    
 					var colors = ['#0000b4','#0082ca','#0094ff','#0d4bcf'];
 
@@ -136,7 +134,7 @@
 					                    .data(energy_vals)
 					                    .enter()
 					                    .append('rect')
-					                    .attr('height',95)
+					                    .attr('height',bar_thickness)
 					                    // This changes the bar offset!!!
 					                    .attr({'x':100,'y':function(d,i){ return yscale(i)+50; }})
 					                    .style('fill',function(d){ 
@@ -147,7 +145,13 @@
 									        	return "red";
 									      	}
 									    })
-				                        .attr('width',function(d){ return 0; });
+				                        .attr('width',function(d){ return 0; })
+				                        .append("svg:image")
+				                        	.attr("xlink:href", "/images/horse_1590_red.svg")
+										    .attr("height", bar_thickness)
+										    .attr("width", bar_thickness)
+											.attr("x", 100)
+											.attr("y", function(d,i){ return yscale(i)+50; });
 				   
 				    // Animation when the graph updates
 				    var transit = d3.select("svg").selectAll("rect")
