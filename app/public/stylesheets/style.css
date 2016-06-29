@@ -187,6 +187,38 @@ g#yaxis text {
 
 
 
+/* ################################################ */
+/* ######## Energy By End Use Images ############## */
+/* ################################################ */
+
+.full-image object{
+	position: relative;
+    left: 0;
+    top: 0;
+    padding-right: 3vh;
+    padding-left: 3vh;
+    width: 25vh;
+    height: 25vh;
+}
+
+.full-image p{
+	padding-top: 20px;
+}
+
+#vertical-half-screen-end-use{
+	min-height: 40%;	/*Fallback for browsers do NOT support vh unit */
+	min-height: 40vh;	/* These two lines are counted as one*/
+	display: flex;
+	align-items: center;
+}
+
+.vertical-text{
+	font-size: 30px;
+	transform-origin: left top 0;
+	/* Rotate and move down text */
+	transform: translate(-30px, 267px) rotate(-90deg);
+}
+
 
 /* ################################################ */
 /* ######## Energy Demand Line Graph ############## */

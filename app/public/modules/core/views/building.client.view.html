@@ -14,6 +14,58 @@
         <percent-zne-goal data="vm.percentGoalData"></percent-zne-goal>
       </div>
     </div>
+    <h1>How much power are we using now?</h1>
+    <!-- STILL USES DUMMY DATA!!!!!!!!!!!!! -->
+    <!-- <end-use-graph data="vm.energyDemandData"></end-use-graph> -->
+    <!-- MOVE ALL OF THIS INTO THE END-USES DIRECTIVE (even the html?) -->
+    <div class="row" id="vertical-half-screen-end-use">
+      <div class="col-mid-2">
+        <div class="vertical-text">Production</div>
+        <div class="full-image">
+          <object type="image/svg+xml" data="/images/eu_sun.svg"></object>
+          <p class="text-center">105 kW</p>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="vertical-half-screen-end-use">    
+      <div class="col-mid-2">
+        <div class="vertical-text">Consumption</div>
+        <div class="full-image">
+          <object type="image/svg+xml" data="/images/eu_plugs.svg"></object>
+          <p class="text-center">105 kW</p>
+        </div>
+      </div>
+      <div class="col-mid-2">
+        <div class="full-image">
+          <object type="image/svg+xml" data="/images/eu_lights.svg"></object>
+          <p class="text-center">105 kW</p>
+        </div>
+      </div>
+      <div class="col-mid-2">
+        <div class="full-image">
+          <object type="image/svg+xml" data="/images/eu_hvac.svg"></object>
+          <p class="text-center">105 kW</p>
+        </div>
+      </div>
+      <div class="col-mid-2">
+        <div class="full-image">
+          <object type="image/svg+xml" data="/images/eu_kitchen.svg"></object>
+          <p class="text-center">105 kW</p>
+        </div>
+      </div>
+      <div class="col-mid-2">
+        <div class="full-image">
+          <object type="image/svg+xml" data="/images/eu_EV.svg"></object>
+          <p class="text-center">105 kW</p>
+        </div>
+      </div>
+      <div class="col-mid-2">
+        <div class="full-image">
+          <object type="image/svg+xml" data="/images/eu_sum2.svg"></object>
+          <p class="text-center">105 kW</p>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-9">
         <h1>How much power are we using daily?</h1>
@@ -61,8 +113,7 @@
   </div>
   <footer class="footer">
     <div class="container">
-      <!-- NEEDS A WAY TO DISPLAY THE ADDRESS BASED ON WHICH BUILDING WAS SELECTED -->
-      <p>{{vm.address}}</p>
+      <p>{{vm.display_address}}</p>
     </div>
   </footer>
 </div>

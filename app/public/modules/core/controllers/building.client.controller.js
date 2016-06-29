@@ -13,6 +13,16 @@
     console.log(address);
     var vm = this;
     vm.address = address;
+
+    // For footer display on site (used: building.client.view.html)
+    vm.display_address = vm.address;
+
+    if (vm.display_address == "215"){
+      vm.display_address = vm.display_address + " Sage St.";
+    } else {
+      vm.display_address = vm.display_address + " Tilia St.";
+    }
+    
     // test data for the Leaderboard graph
     // buildings always in order 215,1590,1605,1715
     vm.leaderboardData = [

@@ -26,6 +26,7 @@ router.get('/api/leaderboard', function(req, res){
        var b2 = {};
        var b3 = {};
        var b4 = {};
+       // ****************** INSERT REAL ZNE GOALS HERE *******************
        b1.energy_sum_week = 0;
        b2.energy_sum_week = 0;
        b3.energy_sum_week = 0;
@@ -34,6 +35,7 @@ router.get('/api/leaderboard', function(req, res){
        b2.zne_sum_week = 30000;
        b3.zne_sum_week = 30000;
        b4.zne_sum_week = 30000;
+       // *****************************************************************
        query.on('row', function(row){
            //results.push(row);
                   if(row['address'] == 215){
@@ -144,7 +146,7 @@ router.get('/api/:month/:day/:year', function(req, res){
       var dateParams = "date \'"+year+"-"+month+"-"+day+"\'";
       var queryStr = "SELECT * FROM log WHERE logged >="+dateParams+";";
 
-    var query =   client.query( queryStr, function(err, results) {
+      var query =   client.query( queryStr, function(err, results) {
       var resuts = [];
       query.on('row', function(row){
         // Handle any errors.

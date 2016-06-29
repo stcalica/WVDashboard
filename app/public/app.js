@@ -9,6 +9,7 @@
 		'energy-demand',
 		// used to be 'energy-by-use'
 		'percent-goal'
+		// 'end-use' (end-use module files are good, for some reason still doesn't work)
 
 	]; // all our modules
 
