@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 //local testing
-var connectionString = 'pg://postgres:barry1@localhost/feed';
+//var connectionString = 'pg://postgres:barry1@localhost/feed';
 //production
-//var connectionString = 'pg://postgres:postgres@postgres/feed';
+var connectionString = 'pg://postgres:postgres@postgres/feed';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
