@@ -7,7 +7,7 @@ import logging
 logging.basicConfig(filename="output.log", level=logging.DEBUG)
 sched = BlockingScheduler()
 
-# runs 2:05 after every 10 minute mark
+# runs ever ten minutes
 @sched.scheduled_job('cron', minute='1,11,21,31,41,51')
 def task():
         try:
